@@ -1,19 +1,20 @@
 import { css } from '@emotion/css';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import colors from 'open-color';
 import { Flex, Spacing, Stack, Txt } from 'quantumic-design';
 import { useState } from 'react';
-import { commaizeNumber } from 'temen';
+import { commaizeNumber, stringifyQueryParams } from 'temen';
 
 const HomePage = () => {
   const [salary, setSalary] = useState<string>();
+  const router = useRouter();
 
   return (
     <Flex
       justify="center"
       align="center"
       className={css`
-        background-color: #1e1e1e;
         height: 100vh;
       `}
     >
@@ -46,7 +47,7 @@ const HomePage = () => {
               placeholder="0"
               value={salary}
               onChange={e => {
-                const value = e.target.value?.replaceAll(',', '');
+                const value = removeComma(e.target.value) ?? '';
                 setSalary(commaizeNumber(value));
               }}
             />
@@ -75,7 +76,21 @@ const HomePage = () => {
               color: ${colors.white};
               font-size: 24px;
               line-height: 32px;
+              cursor: pointer;
+              transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+              &:hover {
+                opacity: 0.8;
+              }
+              &:active {
+                transform: scale(0.95);
+              }
             `}
+            onClick={() => {
+              const querystring = stringifyQueryParams({
+                salary: removeComma(salary),
+              });
+              router.push(`/result${querystring}`);
+            }}
           >
             계산하기
           </button>
@@ -95,3 +110,5 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+const removeComma = (value?: string) => (value == null ? value : value.replaceAll(',', ''));

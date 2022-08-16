@@ -524,7 +524,7 @@
   resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.3.1.tgz#b50a781709c81e10701004214340f25475a171a0"
   integrity sha512-zMM9Ds+SawiUkakS7y94Ymqx+S0ORzpG3frZirN3l+UlXUmSUR7hF4wxCVqW+ei94JzV5kt0uXBcoOEAuiydrw==
 
-"@lubycon/logger@1.11.14":
+"@lubycon/logger@1.11.14", "@lubycon/logger@^1.11.14":
   version "1.11.14"
   resolved "https://registry.yarnpkg.com/@lubycon/logger/-/logger-1.11.14.tgz#381fe21e15eccbd4ad882918bf4a982058778151"
   integrity sha512-XcXkoNL1PTn8wcRKuJM0w3CNmNNQtueC3iuP7ulrJ/10rw5K5t1vscfjDNhctbIy/7jqczuHFZKMcCsg1J67WQ==
@@ -1142,7 +1142,7 @@ braces@^3.0.2:
   dependencies:
     fill-range "^7.0.1"
 
-browser-toolkit@1.2.11:
+browser-toolkit@1.2.11, browser-toolkit@^1.2.11:
   version "1.2.11"
   resolved "https://registry.yarnpkg.com/browser-toolkit/-/browser-toolkit-1.2.11.tgz#65589d64e9a07517b6041fa90be2e86456aae6b4"
   integrity sha512-WpWlB9YTmBE0ThBB2tVdmCWSFT0QAUgBrrGrddGU+SNXgNEAngH39HXy59SGjsEnOVyQMwe8CpinLkCvuWYOBA==

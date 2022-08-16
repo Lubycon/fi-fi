@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@emotion/css": "^11.10.0",
+    "@lubycon/react": "^1.26.2",
     "next": "12.2.5",
     "open-color": "^1.9.1",
     "quantumic-design": "^1.6.5",
