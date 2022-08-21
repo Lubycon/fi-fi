@@ -18,7 +18,12 @@ const HomePage = () => {
         height: 100vh;
       `}
     >
-      <Flex direction="column">
+      <Flex
+        direction="column"
+        className={css`
+          z-index: 10;
+        `}
+      >
         <Stack direction="column" gutter={32}>
           <Txt color={colors.white} size={64} lineHeight="76px" weight={700}>
             내 연봉,
@@ -101,6 +106,7 @@ const HomePage = () => {
           position: absolute;
           bottom: 0;
           right: 15vw;
+          z-index: 0;
         `}
       >
         <Image layout="fixed" width={306} height={306} src="/cash.png" />
