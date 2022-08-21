@@ -18,6 +18,7 @@
     "quantumic-design": "^1.6.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-responsive": "^9.0.0-beta.10",
     "reset-css": "^5.0.1",
     "temen": "^1.36.0"
   },

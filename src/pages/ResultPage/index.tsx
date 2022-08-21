@@ -1,7 +1,10 @@
 import { css } from '@emotion/css';
 import { useBooleanState, useQueryParam } from '@lubycon/react';
 import { RollingNumber } from '@lubycon/rolling-number';
+import Button from 'components/Button';
 import LoadingSpinner from 'components/LoadingSpinner';
+import Select from 'components/Select';
+import { useMobileScreen } from 'hooks/useMobileScreen';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import colors from 'open-color';
@@ -11,6 +14,8 @@ import { commaizeNumber } from 'temen';
 import { getMonthlySalary } from 'utils/salary';
 
 const ResultPage = () => {
+  const isMobile = useMobileScreen();
+
   const router = useRouter();
   const 세전연봉 = useQueryParam('salary', Number);
   const 실수령액 = useMemo(() => getMonthlySalary(세전연봉 ?? 0), [세전연봉]);
@@ -57,25 +62,41 @@ const ResultPage = () => {
     );
   }
 
+  const mainTextSize = isMobile ? 40 : 64;
+  const mainLineHeight = isMobile ? 48 : 76.38;
+
   return (
     <Flex
-      justify="center"
+      justify={isMobile ? undefined : 'center'}
       align="center"
       className={css`
         height: 100vh;
+        padding: 0 24px;
       `}
     >
-      <Flex direction="column">
+      <Flex
+        direction="column"
+        className={css`
+          width: ${isMobile ? '100%' : 'auto'};
+          z-index: 10;
+        `}
+      >
         <Flex direction="column">
           <Txt color={colors.gray[6]} size={18} lineHeight="21.48px" weight={500}>
             연봉 {commaizeNumber(세전연봉)}원 기준으로
           </Txt>
           <Spacing size={20} />
-          <Flex align="center">
+          <Flex
+            align={isMobile ? undefined : 'center'}
+            direction={isMobile ? 'column' : 'row'}
+            className={css`
+              width: 100%;
+            `}
+          >
             <Txt
-              size={64}
+              size={mainTextSize}
               color={colors.white}
-              lineHeight="76.38px"
+              lineHeight={`${mainLineHeight}px`}
               weight={700}
               className={css`
                 margin-right: 8px;
@@ -84,66 +105,63 @@ const ResultPage = () => {
               매달
             </Txt>
             <RollingNumber
-              width={38}
-              height={64}
+              width={isMobile ? 26 : 38}
+              height={mainTextSize}
               number={실수령액}
               formatter={value => (
-                <Txt size={64} lineHeight="76.38px" weight={700} color={colors.indigo[6]}>
+                <Txt size={mainTextSize} lineHeight={`${mainLineHeight}px`} weight={700} color={colors.indigo[6]}>
                   {value}
                 </Txt>
               )}
             />
-            <Txt size={64} color={colors.white} lineHeight="76.38px" weight={700}>
+            <Txt size={mainTextSize} color={colors.white} lineHeight={`${mainLineHeight}px`} weight={700}>
               원을 받아요
             </Txt>
           </Flex>
         </Flex>
         <Spacing size={48} />
-        <Stack gutter={16} align="center">
+        <Stack gutter={16} align={isMobile ? undefined : 'center'} direction={isMobile ? 'column' : 'row'}>
           <Txt color={colors.white} size={24} weight={700} lineHeight="40px">
             내가 받는 연봉은
           </Txt>
-          <button />
-          <Txt color={colors.white} size={24} weight={700} lineHeight="40px">
-            중에서 몇위일까?
-          </Txt>
+          <Stack gutter={16} align="center">
+            <Select>
+              <option disabled selected>
+                내 연령대
+              </option>
+              <option>20대</option>
+              <option>30대</option>
+              <option>40대</option>
+            </Select>
+            <Txt color={colors.white} size={24} weight={700} lineHeight="40px">
+              중에서 몇위일까?
+            </Txt>
+          </Stack>
         </Stack>
         <Spacing size={80} />
         <Flex
+          justify={isMobile ? 'center' : 'flex-end'}
           className={css`
             width: 100%;
           `}
         >
-          <button
+          <Button
             className={css`
-              width: 163px;
-              height: 80px;
               border: 2px solid ${colors.indigo[7]};
-              border-radius: 20px;
               background-color: transparent;
               color: ${colors.indigo[7]};
-              font-size: 24px;
-              line-height: 32px;
-              cursor: pointer;
-              transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
-              &:hover {
-                opacity: 0.8;
-              }
-              &:active {
-                transform: scale(0.95);
-              }
             `}
             onClick={() => router.push('/')}
           >
             다시하기
-          </button>
+          </Button>
         </Flex>
       </Flex>
       <div
         className={css`
           position: absolute;
           bottom: 0;
-          right: 15vw;
+          right: ${isMobile ? '-40px' : '15vw'};
         `}
       >
         <Image layout="fixed" width={306} height={306} src="/cash.png" />

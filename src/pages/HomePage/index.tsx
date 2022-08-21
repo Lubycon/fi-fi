@@ -1,48 +1,61 @@
 import { css } from '@emotion/css';
+import Button from 'components/Button';
+import { useMobileScreen } from 'hooks/useMobileScreen';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { numToKorean } from 'num-to-korean';
 import colors from 'open-color';
 import { Flex, Spacing, Stack, Txt } from 'quantumic-design';
 import { useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { commaizeNumber, stringifyQueryParams } from 'temen';
 
 const HomePage = () => {
+  const isMobile = useMobileScreen();
   const [salary, setSalary] = useState<string>();
   const router = useRouter();
 
+  const textSize = isMobile ? 32 : 64;
+  const lineHeight = isMobile ? 38 : 76;
+
   return (
     <Flex
-      justify="center"
+      justify={isMobile ? undefined : 'center'}
       align="center"
       className={css`
         height: 100vh;
+        padding: 0 24px;
       `}
     >
       <Flex
         direction="column"
         className={css`
+          width: ${isMobile ? '100%' : 'auto'};
           z-index: 10;
         `}
       >
-        <Stack direction="column" gutter={32}>
-          <Txt color={colors.white} size={64} lineHeight="76px" weight={700}>
+        <Stack direction="column" gutter={isMobile ? 16 : 32}>
+          <Txt color={colors.white} size={textSize} lineHeight={`${lineHeight}px`} weight={700}>
             내 연봉,
           </Txt>
-          <Stack gutter={20} align="center">
+          <Stack
+            gutter={isMobile ? 16 : 20}
+            align={isMobile ? undefined : 'center'}
+            direction={isMobile ? 'column' : 'row'}
+          >
             <input
               type="tel"
               className={css`
                 background-color: ${colors.gray[9]};
                 border: none;
-                width: 428px;
-                height: 96px;
-                border-radius: 20px;
-                font-size: 64px;
-                line-height: 76px;
+                width: ${isMobile ? 218 : 428}px;
+                height: ${isMobile ? 38 : 96}px;
+                border-radius: ${isMobile ? 16 : 20}px;
+                font-size: ${textSize}px;
+                line-height: ${lineHeight}px;
                 color: ${colors.white};
                 font-weight: 700;
-                padding: 8px 16px;
+                padding: ${isMobile ? '5px 10px' : '8px 16px'};
                 box-sizing: border-box;
                 text-align: right;
                 outline: 0;
@@ -57,45 +70,30 @@ const HomePage = () => {
                 setSalary(commaizeNumber(value));
               }}
             />
-            <Txt color={colors.white} size={64} lineHeight="76px" weight={700}>
+            <Txt color={colors.white} size={textSize} lineHeight={`${lineHeight}px`} weight={700}>
               {salary != null && (
                 <Txt display="inline" color={colors.indigo[6]}>
                   {numToKorean(Number(removeComma(salary)))}
                 </Txt>
               )}
-              원 의
+              <Txt display="inline" color={salary != null && salary !== '' ? colors.indigo[6] : colors.white}>
+                원
+              </Txt>
+              의
             </Txt>
           </Stack>
-          <Txt color={colors.white} size={64} lineHeight="76px" weight={700}>
+          <Txt color={colors.white} size={textSize} lineHeight={`${lineHeight}px`} weight={700}>
             월 실수령액이 얼마죠?
           </Txt>
         </Stack>
         <Spacing size={80} />
         <Flex
-          justify="flex-end"
+          justify={isMobile ? 'center' : 'flex-end'}
           className={css`
             width: 100%;
           `}
         >
-          <button
-            className={css`
-              width: 163px;
-              height: 80px;
-              border: none;
-              border-radius: 20px;
-              background-color: ${colors.indigo[7]};
-              color: ${colors.white};
-              font-size: 24px;
-              line-height: 32px;
-              cursor: pointer;
-              transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
-              &:hover {
-                opacity: 0.8;
-              }
-              &:active {
-                transform: scale(0.95);
-              }
-            `}
+          <Button
             onClick={() => {
               const querystring = stringifyQueryParams({
                 salary: removeComma(salary),
@@ -104,14 +102,14 @@ const HomePage = () => {
             }}
           >
             계산하기
-          </button>
+          </Button>
         </Flex>
       </Flex>
       <div
         className={css`
           position: absolute;
           bottom: 0;
-          right: 15vw;
+          right: ${isMobile ? '-40px' : '15vw'};
           z-index: 0;
         `}
       >
