@@ -11,7 +11,7 @@ import colors from 'open-color';
 import { Flex, Spacing, Stack, Txt } from 'quantumic-design';
 import { useEffect, useMemo, useState } from 'react';
 import { commaizeNumber } from 'temen';
-import { getMonthlySalary } from 'utils/salary';
+import { calcIncomeRange, getMonthlySalary } from 'utils/salary';
 
 const ResultPage = () => {
   const isMobile = useMobileScreen();
@@ -21,6 +21,10 @@ const ResultPage = () => {
   const 실수령액 = useMemo(() => getMonthlySalary(세전연봉 ?? 0), [세전연봉]);
   const [loading, , endLoading] = useBooleanState(true);
   const [loadingMessage, setLoadingMessage] = useState('소득세를 계산 중이에요...');
+
+  const handleChangeIncomeRange = (value: string) => {
+    calcIncomeRange(실수령액, Number(value));
+  };
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -125,13 +129,17 @@ const ResultPage = () => {
             내가 받는 연봉은
           </Txt>
           <Stack gutter={16} align="center">
-            <Select>
+            <Select onChange={e => handleChangeIncomeRange(e.target.value)}>
               <option disabled selected>
                 내 연령대
               </option>
-              <option>20대</option>
-              <option>30대</option>
-              <option>40대</option>
+              <option value={10}>20대 미만</option>
+              <option value={20}>20대</option>
+              <option value={30}>30대</option>
+              <option value={40}>40대</option>
+              <option value={50}>50대</option>
+              <option value={60}>60대</option>
+              <option value={70}>70대 이상</option>
             </Select>
             <Txt color={colors.white} size={24} weight={700} lineHeight="40px">
               중에서 몇위일까?

@@ -1,9 +1,9 @@
 import colors from 'open-color';
 import { css, cx } from '@emotion/css';
 import { useMobileScreen } from 'hooks/useMobileScreen';
-import { HTMLProps } from 'react';
+import { HTMLProps, SelectHTMLAttributes } from 'react';
 
-type Props = Omit<HTMLProps<HTMLSelectElement>, 'ref'>;
+type Props = SelectHTMLAttributes<HTMLSelectElement>;
 const Select = ({ className, ...props }: Props) => {
   const isMobile = useMobileScreen();
 
