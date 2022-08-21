@@ -1,6 +1,7 @@
 import { css } from '@emotion/css';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { numToKorean } from 'num-to-korean';
 import colors from 'open-color';
 import { Flex, Spacing, Stack, Txt } from 'quantumic-design';
 import { useState } from 'react';
@@ -57,6 +58,11 @@ const HomePage = () => {
               }}
             />
             <Txt color={colors.white} size={64} lineHeight="76px" weight={700}>
+              {salary != null && (
+                <Txt display="inline" color={colors.indigo[6]}>
+                  {numToKorean(Number(removeComma(salary)))}
+                </Txt>
+              )}
               원 의
             </Txt>
           </Stack>

@@ -13,6 +13,7 @@
     "@lubycon/react": "^1.26.2",
     "@lubycon/rolling-number": "^1.1.0",
     "next": "12.2.5",
+    "num-to-korean": "^0.5.2",
     "open-color": "^1.9.1",
     "quantumic-design": "^1.6.5",
     "react": "18.2.0",
