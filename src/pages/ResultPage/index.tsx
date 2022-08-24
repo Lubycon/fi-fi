@@ -3,7 +3,6 @@ import { useBooleanState, useQueryParam } from '@lubycon/react';
 import { RollingNumber } from '@lubycon/rolling-number';
 import Button from 'components/Button';
 import LoadingSpinner from 'components/LoadingSpinner';
-import Select from 'components/Select';
 import { useMobileScreen } from 'hooks/useMobileScreen';
 import Image from 'next/image';
 import { useRouter } from 'next/router';

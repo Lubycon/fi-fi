@@ -7,7 +7,6 @@ import { numToKorean } from 'num-to-korean';
 import colors from 'open-color';
 import { Flex, Spacing, Stack, Txt } from 'quantumic-design';
 import { useState } from 'react';
-import { useMediaQuery } from 'react-responsive';
 import { commaizeNumber, stringifyQueryParams } from 'temen';
 
 const HomePage = () => {

@@ -11,7 +11,7 @@ export function useMobileScreen() {
     if (typeof window !== 'undefined') {
       setMobile(isMobile);
     }
-  }, []);
+  }, [isMobile]);
 
   return mobile;
 }
