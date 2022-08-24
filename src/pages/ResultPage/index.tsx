@@ -22,10 +22,6 @@ const ResultPage = () => {
   const [loading, , endLoading] = useBooleanState(true);
   const [loadingMessage, setLoadingMessage] = useState('소득세를 계산 중이에요...');
 
-  const handleChangeIncomeRange = (value: string) => {
-    calcIncomeRange(실수령액, Number(value));
-  };
-
   useEffect(() => {
     const timeout = setTimeout(() => {
       endLoading();
@@ -126,25 +122,12 @@ const ResultPage = () => {
         <Spacing size={48} />
         <Stack gutter={16} align={isMobile ? undefined : 'center'} direction={isMobile ? 'column' : 'row'}>
           <Txt color={colors.white} size={24} weight={700} lineHeight="40px">
-            내가 받는 연봉은
+            내가 받는 연봉은{' '}
+            <Txt display="inline" color={colors.indigo[3]}>
+              {calcIncomeRange(Number(세전연봉))}
+            </Txt>{' '}
+            에요.
           </Txt>
-          <Stack gutter={16} align="center">
-            <Select onChange={e => handleChangeIncomeRange(e.target.value)}>
-              <option disabled selected>
-                내 연령대
-              </option>
-              <option value={10}>20대 미만</option>
-              <option value={20}>20대</option>
-              <option value={30}>30대</option>
-              <option value={40}>40대</option>
-              <option value={50}>50대</option>
-              <option value={60}>60대</option>
-              <option value={70}>70대 이상</option>
-            </Select>
-            <Txt color={colors.white} size={24} weight={700} lineHeight="40px">
-              중에서 몇위일까?
-            </Txt>
-          </Stack>
         </Stack>
         <Spacing size={80} />
         <Flex
@@ -172,7 +155,7 @@ const ResultPage = () => {
           right: ${isMobile ? '-40px' : '15vw'};
         `}
       >
-        <Image layout="fixed" width={306} height={306} src="/cash.png" />
+        <Image layout="fixed" width={306} height={306} src="/cash.png" priority={true} />
       </div>
     </Flex>
   );

@@ -1,6 +1,6 @@
 import { sum } from 'temen';
 import 간이세액표 from 'constants/간이세액표2022.json';
-import 연령별소득분포 from 'constants/연령별소득분포2020.json';
+import 근로소득백분위 from 'constants/근로소득백분위.json';
 
 function getIncomeTax(월급여: number) {
   const 소득구간 = 간이세액표.reduce((result, current) => {
@@ -31,37 +31,11 @@ export function getMonthlySalary(세전연봉: number) {
   return Math.floor(월급여 - 한달세금);
 }
 
-function getIncomeRange(연령대: number) {
-  if (연령대 < 20) {
-    return 연령별소득분포['19세미만'];
-  } else if (연령대 < 30) {
-    return 연령별소득분포['30세미만'];
-  } else if (연령대 < 40) {
-    return 연령별소득분포['40세미만'];
-  } else if (연령대 < 50) {
-    return 연령별소득분포['50세미만'];
-  } else if (연령대 < 60) {
-    return 연령별소득분포['60세미만'];
-  } else if (연령대 < 70) {
-    return 연령별소득분포['65세미만'];
-  } else if (연령대 >= 70) {
-    return 연령별소득분포['65세이상'];
-  } else {
-    return 연령별소득분포['전체'];
-  }
-}
+export function calcIncomeRange(세전연봉: number) {
+  const 내분위 = 근로소득백분위.find(분위 => {
+    const 소득금액 = (분위.근로소득금액 * 100000000) / 분위.인원;
+    return 세전연봉 >= 소득금액;
+  });
 
-export function calcIncomeRange(월급여: number, 연령대: number) {
-  const 소득분포 = getIncomeRange(연령대);
-  console.log(소득분포, 월급여, 연령대);
-  console.log(
-    '분포',
-    sum(
-      Object.entries(소득분포)
-        .filter(([key]) => key !== '평균' && key !== '중위')
-        .map(([, value]) => value)
-    )
-  );
-
-  return 월급여;
+  return 내분위?.구분;
 }

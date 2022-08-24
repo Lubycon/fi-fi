@@ -113,7 +113,7 @@ const HomePage = () => {
           z-index: 0;
         `}
       >
-        <Image layout="fixed" width={306} height={306} src="/cash.png" />
+        <Image layout="fixed" width={306} height={306} src="/cash.png" priority={true} />
       </div>
     </Flex>
   );
