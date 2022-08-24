@@ -1,4 +1,5 @@
 import { css } from '@emotion/css';
+import { logger } from '@lubycon/logger';
 import { useBooleanState, useQueryParam } from '@lubycon/react';
 import { RollingNumber } from '@lubycon/rolling-number';
 import Button from 'components/Button';
@@ -12,6 +13,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { commaizeNumber } from 'temen';
 import { calcIncomeRange, getMonthlySalary } from 'utils/salary';
 
+const resultPageLogger = logger.getPageLogger('ResultPage');
+
 const ResultPage = () => {
   const isMobile = useMobileScreen();
 
@@ -22,8 +25,13 @@ const ResultPage = () => {
   const [loadingMessage, setLoadingMessage] = useState('소득세를 계산 중이에요...');
 
   useEffect(() => {
+    resultPageLogger.view();
+  }, []);
+
+  useEffect(() => {
     const timeout = setTimeout(() => {
       endLoading();
+      resultPageLogger.impression('end_fake_loading');
     }, 4000);
     return () => {
       clearTimeout(timeout);
@@ -141,7 +149,10 @@ const ResultPage = () => {
               background-color: transparent;
               color: ${colors.indigo[7]};
             `}
-            onClick={() => router.push('/')}
+            onClick={() => {
+              resultPageLogger.click('click_move_to_home_page');
+              router.push('/');
+            }}
           >
             다시하기
           </Button>

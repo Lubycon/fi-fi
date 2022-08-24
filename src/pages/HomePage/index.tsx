@@ -1,4 +1,5 @@
 import { css } from '@emotion/css';
+import { logger } from '@lubycon/logger';
 import Button from 'components/Button';
 import { useMobileScreen } from 'hooks/useMobileScreen';
 import Image from 'next/image';
@@ -6,8 +7,10 @@ import { useRouter } from 'next/router';
 import { numToKorean } from 'num-to-korean';
 import colors from 'open-color';
 import { Flex, Spacing, Stack, Txt } from 'quantumic-design';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { commaizeNumber, stringifyQueryParams } from 'temen';
+
+const homePageLogger = logger.getPageLogger('HomePage');
 
 const HomePage = () => {
   const isMobile = useMobileScreen();
@@ -16,6 +19,10 @@ const HomePage = () => {
 
   const textSize = isMobile ? 32 : 64;
   const lineHeight = isMobile ? 38 : 76;
+
+  useEffect(() => {
+    homePageLogger.view();
+  }, []);
 
   return (
     <Flex
@@ -94,6 +101,8 @@ const HomePage = () => {
         >
           <Button
             onClick={() => {
+              homePageLogger.click('click_calculate_salary');
+
               const querystring = stringifyQueryParams({
                 salary: removeComma(salary),
               });
