@@ -9,6 +9,9 @@ function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     logger.init({
       services: {
+        amplitude: {
+          apiKey: '0513f1548056c9512dd39394a6240bcf',
+        },
         firebase: {
           apiKey: 'AIzaSyC2YRoV7MqPXKBpbe9r91BrGIS0yYuJ2Yw',
           authDomain: 'salarycalculator-b7361.firebaseapp.com',
