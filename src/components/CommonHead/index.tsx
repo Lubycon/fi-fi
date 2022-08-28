@@ -30,6 +30,7 @@ function CommonHead({ container: Container = Fragment }: Props) {
       <link rel="apple-touch-icon" sizes="144x144" href={logoPath} />
       <link rel="apple-touch-icon" sizes="152x152" href={logoPath} />
       <meta name="msapplication-TileImage" content={logoPath} />
+      <meta name="google-site-verification" content="MLGj_VaV04VWUEkIcsb1Ov-tYu9bcp2TBakfflmc4DA" />
     </Container>
   );
 }
