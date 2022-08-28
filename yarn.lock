@@ -1244,7 +1244,7 @@ braces@^3.0.2:
   dependencies:
     fill-range "^7.0.1"
 
-browser-toolkit@1.2.11, browser-toolkit@^1.2.11:
+browser-toolkit@1.2.11:
   version "1.2.11"
   resolved "https://registry.yarnpkg.com/browser-toolkit/-/browser-toolkit-1.2.11.tgz#65589d64e9a07517b6041fa90be2e86456aae6b4"
   integrity sha512-WpWlB9YTmBE0ThBB2tVdmCWSFT0QAUgBrrGrddGU+SNXgNEAngH39HXy59SGjsEnOVyQMwe8CpinLkCvuWYOBA==
