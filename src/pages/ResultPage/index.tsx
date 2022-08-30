@@ -81,6 +81,22 @@ const ResultPage = () => {
         padding: 0 24px;
       `}
     >
+      <Txt
+        className={css`
+          position: absolute;
+          top: 40px;
+          left: ${isMobile ? '24px' : '40px'};
+          white-space: nowrap;
+        `}
+        size={16}
+        color={colors.gray[7]}
+      >
+        내 연봉,{' '}
+        <Txt as="span" display="inline" weight={700} color={colors.indigo[6]}>
+          실수령액
+        </Txt>{' '}
+        알아보기
+      </Txt>
       <Flex
         direction="column"
         className={css`
@@ -126,17 +142,21 @@ const ResultPage = () => {
             </Txt>
           </Flex>
         </Flex>
-        <Spacing size={48} />
+        <Spacing size={10} />
+        <Txt color={colors.gray[8]}>※국세청 간이세액표 기준</Txt>
+        <Spacing size={30} />
         <Stack gutter={16} align={isMobile ? undefined : 'center'} direction={isMobile ? 'column' : 'row'}>
           <Txt color={colors.white} size={24} weight={700} lineHeight="40px">
             내가 받는 연봉은{' '}
-            <Txt display="inline" color={colors.indigo[3]}>
+            <Txt as="span" display="inline" color={colors.indigo[3]}>
               {calcIncomeRange(Number(세전연봉))}
             </Txt>{' '}
             에요.
           </Txt>
         </Stack>
-        <Spacing size={80} />
+        <Spacing size={5} />
+        <Txt color={colors.gray[8]}>※국세청_근로소득 백분위(천분위) 자료</Txt>
+        <Spacing size={70} />
         <Flex
           justify={isMobile ? 'center' : 'flex-end'}
           className={css`

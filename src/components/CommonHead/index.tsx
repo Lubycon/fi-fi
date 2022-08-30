@@ -1,8 +1,5 @@
-import { Fragment, memo } from 'react';
-
-interface Props {
-  container?: React.ComponentType<any>;
-}
+import Head from 'next/head';
+import { memo } from 'react';
 
 const favicon = '/favicon.ico';
 const logo = {
@@ -32,9 +29,9 @@ const siteData = {
   },
 };
 
-function CommonHead({ container: Container = Fragment }: Props) {
+function CommonHead() {
   return (
-    <Container>
+    <Head>
       <meta charSet="UTF-8" />
       <meta
         name="viewport"
@@ -59,7 +56,7 @@ function CommonHead({ container: Container = Fragment }: Props) {
       <meta name="msapplication-TileImage" content={logo.xx} />
       <meta name="google-site-verification" content="MLGj_VaV04VWUEkIcsb1Ov-tYu9bcp2TBakfflmc4DA" />
       <script type="application/ld+json">{JSON.stringify(siteData)}</script>
-    </Container>
+    </Head>
   );
 }
 

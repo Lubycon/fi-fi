@@ -33,6 +33,22 @@ const HomePage = () => {
         padding: 0 24px;
       `}
     >
+      <Txt
+        className={css`
+          position: absolute;
+          top: 40px;
+          left: ${isMobile ? '24px' : '40px'};
+          white-space: nowrap;
+        `}
+        size={16}
+        color={colors.gray[7]}
+      >
+        내 연봉,{' '}
+        <Txt display="inline" as="span" weight={700} color={colors.indigo[6]}>
+          실수령액
+        </Txt>{' '}
+        알아보기
+      </Txt>
       <Flex
         direction="column"
         className={css`
@@ -78,11 +94,11 @@ const HomePage = () => {
             />
             <Txt color={colors.white} size={textSize} lineHeight={`${lineHeight}px`} weight={700}>
               {salary != null && (
-                <Txt display="inline" color={colors.indigo[6]}>
+                <Txt as="span" display="inline" color={colors.indigo[6]}>
                   {numToKorean(Number(removeComma(salary)))}
                 </Txt>
               )}
-              <Txt display="inline" color={salary != null && salary !== '' ? colors.indigo[6] : colors.white}>
+              <Txt as="span" display="inline" color={salary != null && salary !== '' ? colors.indigo[6] : colors.white}>
                 원
               </Txt>
               의

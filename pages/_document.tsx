@@ -1,4 +1,3 @@
-import CommonHead from 'components/CommonHead';
 import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
 import createEmotionServer from '@emotion/server/create-instance';
 import { cache } from '@emotion/css';
@@ -33,7 +32,6 @@ class MyDocument extends Document {
     return (
       <Html lang="ko">
         <Head>
-          <CommonHead />
           <link
             rel="stylesheet"
             as="style"
