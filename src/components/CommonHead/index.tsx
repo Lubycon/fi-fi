@@ -56,6 +56,11 @@ function CommonHead() {
       <meta name="msapplication-TileImage" content={logo.xx} />
       <meta name="google-site-verification" content="MLGj_VaV04VWUEkIcsb1Ov-tYu9bcp2TBakfflmc4DA" />
       <script type="application/ld+json">{JSON.stringify(siteData)}</script>
+      <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4113746985528013"
+        crossOrigin="anonymous"
+      />
     </Head>
   );
 }
