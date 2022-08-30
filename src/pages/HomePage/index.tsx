@@ -121,8 +121,19 @@ const HomePage = () => {
           z-index: 0;
         `}
       >
-        <Image layout="fixed" width={306} height={306} src="/cash.png" priority={true} />
+        <Image layout="fixed" width={306} height={306} src="/cash.png" priority={true} alt="" />
       </div>
+      <Txt
+        className={css`
+          position: absolute;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+        `}
+        color={colors.gray[7]}
+      >
+        © Double Tap co.
+      </Txt>
     </Flex>
   );
 };
