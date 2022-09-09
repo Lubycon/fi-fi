@@ -1,26 +1,25 @@
 import { css } from '@emotion/css';
 import { logger } from '@lubycon/logger';
 import { useBooleanState, useQueryParam } from '@lubycon/react';
-import { RollingNumber } from '@lubycon/rolling-number';
 import Button from 'components/Button';
+import CopyRights from 'components/CopyRights';
+import Header from 'components/Header';
 import LoadingSpinner from 'components/LoadingSpinner';
 import { useMobileScreen } from 'hooks/useMobileScreen';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
+import Link from 'next/link';
 import colors from 'open-color';
 import { Flex, Spacing, Stack, Txt } from 'quantumic-design';
-import { useEffect, useMemo, useState } from 'react';
-import { commaizeNumber } from 'temen';
-import { calcIncomeRange, getMonthlySalary } from 'utils/salary';
+import { useEffect, useState } from 'react';
+import IncomeRangeResult from './IncomeRangeResult';
+import SalaryResult from './SalaryResult';
 
 const resultPageLogger = logger.getPageLogger('ResultPage');
 
 const ResultPage = () => {
   const isMobile = useMobileScreen();
-
-  const router = useRouter();
   const 세전연봉 = useQueryParam('salary', Number);
-  const 실수령액 = useMemo(() => getMonthlySalary(세전연봉 ?? 0), [세전연봉]);
+
   const [loading, , endLoading] = useBooleanState(true);
   const [loadingMessage, setLoadingMessage] = useState('소득세를 계산 중이에요...');
 
@@ -36,7 +35,7 @@ const ResultPage = () => {
     return () => {
       clearTimeout(timeout);
     };
-  }, []);
+  }, [endLoading]);
 
   useEffect(() => {
     const timeout1 = setTimeout(() => {
@@ -52,130 +51,83 @@ const ResultPage = () => {
     };
   }, []);
 
-  if (세전연봉 == null || loading === true) {
-    return (
+  const isLoading = 세전연봉 == null || loading === true;
+
+  return (
+    <>
+      {isLoading === true ? (
+        <Flex
+          direction="column"
+          justify="center"
+          align="center"
+          className={css`
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            left: 0;
+            top: 0;
+            z-index: 3000;
+            background-color: #1e1e1e;
+          `}
+        >
+          <LoadingSpinner color={colors.white} size={24} />
+          <Spacing size={16} />
+          <Txt color={colors.white}>{loadingMessage}</Txt>
+        </Flex>
+      ) : null}
       <Flex
-        direction="column"
-        justify="center"
+        justify={isMobile ? undefined : 'center'}
         align="center"
         className={css`
           height: 100vh;
+          padding: 0 24px;
         `}
       >
-        <LoadingSpinner color={colors.white} size={24} />
-        <Spacing size={16} />
-        <Txt color={colors.white}>{loadingMessage}</Txt>
-      </Flex>
-    );
-  }
-
-  const mainTextSize = isMobile ? 40 : 64;
-  const mainLineHeight = isMobile ? 48 : 76.38;
-
-  return (
-    <Flex
-      justify={isMobile ? undefined : 'center'}
-      align="center"
-      className={css`
-        height: 100vh;
-        padding: 0 24px;
-      `}
-    >
-      <Txt
-        className={css`
-          position: absolute;
-          top: 40px;
-          left: ${isMobile ? '24px' : '40px'};
-          white-space: nowrap;
-        `}
-        size={16}
-        color={colors.gray[7]}
-      >
-        내 연봉,{' '}
-        <Txt as="span" display="inline" weight={700} color={colors.indigo[6]}>
-          실수령액
-        </Txt>{' '}
-        알아보기
-      </Txt>
-      <Flex
-        direction="column"
-        className={css`
-          width: ${isMobile ? '100%' : 'auto'};
-          z-index: 10;
-        `}
-      >
-        <Flex direction="column">
-          <Txt color={colors.gray[6]} size={18} lineHeight="21.48px" weight={500}>
-            연봉 {commaizeNumber(세전연봉)}원 기준으로
-          </Txt>
-          <Spacing size={20} />
+        <Header />
+        <Flex
+          direction="column"
+          className={css`
+            width: ${isMobile ? '100%' : 'auto'};
+            z-index: 10;
+          `}
+        >
+          {isLoading === false && <SalaryResult 세전연봉={세전연봉!} />}
+          <Spacing size={10} />
+          <Txt color={colors.gray[8]}>※국세청 간이세액표 기준</Txt>
+          <Spacing size={30} />
+          <Stack gutter={16} align={isMobile ? undefined : 'center'} direction={isMobile ? 'column' : 'row'}>
+            {isLoading === false && <IncomeRangeResult 세전연봉={세전연봉!} />}
+          </Stack>
+          <Spacing size={5} />
+          <Txt color={colors.gray[8]}>※국세청_근로소득 백분위(천분위) 자료</Txt>
+          <Spacing size={70} />
           <Flex
-            align={isMobile ? undefined : 'center'}
-            direction={isMobile ? 'column' : 'row'}
+            justify={isMobile ? 'center' : 'flex-end'}
             className={css`
               width: 100%;
             `}
           >
-            <Txt
-              size={mainTextSize}
-              color={colors.white}
-              lineHeight={`${mainLineHeight}px`}
-              weight={700}
-              className={css`
-                margin-right: 8px;
-              `}
-            >
-              매달
-            </Txt>
-            <RollingNumber
-              width={isMobile ? 26 : 38}
-              height={mainTextSize}
-              number={실수령액}
-              formatter={value => (
-                <Txt size={mainTextSize} lineHeight={`${mainLineHeight}px`} weight={700} color={colors.indigo[6]}>
-                  {value}
-                </Txt>
-              )}
-            />
-            <Txt size={mainTextSize} color={colors.white} lineHeight={`${mainLineHeight}px`} weight={700}>
-              원을 받아요
-            </Txt>
+            <Link href="/">
+              <a
+                className={css`
+                  display: block;
+                `}
+              >
+                <Button
+                  className={css`
+                    border: 2px solid ${colors.indigo[7]};
+                    background-color: transparent;
+                    color: ${colors.indigo[7]};
+                  `}
+                  onClick={() => {
+                    resultPageLogger.click('click_move_to_home_page');
+                  }}
+                >
+                  다시하기
+                </Button>
+              </a>
+            </Link>
           </Flex>
-        </Flex>
-        <Spacing size={10} />
-        <Txt color={colors.gray[8]}>※국세청 간이세액표 기준</Txt>
-        <Spacing size={30} />
-        <Stack gutter={16} align={isMobile ? undefined : 'center'} direction={isMobile ? 'column' : 'row'}>
-          <Txt color={colors.white} size={24} weight={700} lineHeight="40px">
-            내가 받는 연봉은{' '}
-            <Txt as="span" display="inline" color={colors.indigo[3]}>
-              {calcIncomeRange(Number(세전연봉))}
-            </Txt>{' '}
-            에요.
-          </Txt>
-        </Stack>
-        <Spacing size={5} />
-        <Txt color={colors.gray[8]}>※국세청_근로소득 백분위(천분위) 자료</Txt>
-        <Spacing size={70} />
-        <Flex
-          justify={isMobile ? 'center' : 'flex-end'}
-          className={css`
-            width: 100%;
-          `}
-        >
-          <Button
-            className={css`
-              border: 2px solid ${colors.indigo[7]};
-              background-color: transparent;
-              color: ${colors.indigo[7]};
-            `}
-            onClick={() => {
-              resultPageLogger.click('click_move_to_home_page');
-              router.push('/');
-            }}
-          >
-            다시하기
-          </Button>
         </Flex>
       </Flex>
       <div
@@ -187,18 +139,8 @@ const ResultPage = () => {
       >
         <Image layout="fixed" width={306} height={306} src="/cash.png" priority={true} alt="" />
       </div>
-      <Txt
-        className={css`
-          position: absolute;
-          bottom: 20px;
-          left: 50%;
-          transform: translateX(-50%);
-        `}
-        color={colors.gray[7]}
-      >
-        © Double Tap co.
-      </Txt>
-    </Flex>
+      <CopyRights />
+    </>
   );
 };
 
