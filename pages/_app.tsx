@@ -1,7 +1,7 @@
 import { css } from '@emotion/css';
 import { logger } from '@lubycon/logger';
-import CommonHead from 'components/CommonHead';
-import { isProduction } from 'constants/env';
+import CommonHead from 'common/components/CommonHead';
+import { isProduction } from 'common/constants/env';
 import type { AppProps } from 'next/app';
 import { useEffect } from 'react';
 import 'reset-css';
@@ -37,7 +37,6 @@ function App({ Component, pageProps }: AppProps) {
               'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji',
               'Segoe UI Symbol', sans-serif;
           }
-          background-color: #1e1e1e;
         `}
       >
         <Component {...pageProps} />

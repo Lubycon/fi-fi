@@ -1,6 +1,6 @@
 import colors from 'open-color';
 import { css, cx } from '@emotion/css';
-import { useMobileScreen } from 'hooks/useMobileScreen';
+import { useMobileScreen } from 'common/hooks/useMobileScreen';
 import { HTMLProps } from 'react';
 
 type Props = Omit<HTMLProps<HTMLButtonElement>, 'ref' | 'type'>;

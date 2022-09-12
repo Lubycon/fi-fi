@@ -1,18 +1,19 @@
 import { css } from '@emotion/css';
 import { logger } from '@lubycon/logger';
-import Button from 'components/Button';
-import { useMobileScreen } from 'hooks/useMobileScreen';
+import Button from 'salary-calculator/components/Button';
+import { useMobileScreen } from 'common/hooks/useMobileScreen';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Flex, Spacing } from 'quantumic-design';
 import { useEffect, useState } from 'react';
 import { stringifyQueryParams } from 'temen';
-import Header from 'components/Header';
+import Header from 'salary-calculator/components/Header';
 import SalaryInput from './SalaryInput';
-import CopyRights from 'components/CopyRights';
-import Shortcuts from 'components/Shortcuts';
+import CopyRights from 'salary-calculator/components/CopyRights';
+import Shortcuts from 'salary-calculator/components/Shortcuts';
+import ServiceHead from 'salary-calculator/components/ServiceHead';
 
-const homePageLogger = logger.getPageLogger('HomePage');
+const homePageLogger = logger.getPageLogger('Salary Calculator HomePage');
 
 const HomePage = () => {
   const isMobile = useMobileScreen();
@@ -25,6 +26,7 @@ const HomePage = () => {
 
   return (
     <>
+      <ServiceHead />
       <Header />
       <Flex
         justify={isMobile ? undefined : 'center'}
@@ -32,6 +34,7 @@ const HomePage = () => {
         className={css`
           height: 100vh;
           padding: 0 24px;
+          background-color: #1e1e1e;
         `}
       >
         <Flex

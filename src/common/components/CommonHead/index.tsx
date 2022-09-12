@@ -8,8 +8,8 @@ const logo = {
   xxx: '/favicon4x.png',
 };
 
-const title = '내 연봉, 실수령액 알아보기';
-const description = '내 연봉, 실수령액은 얼마일까? 국세청 통계를 기반으로 정확하게 알아보자!';
+const title = '더블탭 유틸 박스';
+const description = '더블탭 유틸박스 입니다';
 const author = 'Double Tap';
 
 const siteData = {
@@ -55,8 +55,11 @@ function CommonHead() {
       <link rel="apple-touch-icon" sizes="152x152" href={logo.xxx} />
       <meta name="msapplication-TileImage" content={logo.xx} />
       <meta name="google-site-verification" content="MLGj_VaV04VWUEkIcsb1Ov-tYu9bcp2TBakfflmc4DA" />
-      <script type="application/ld+json">{JSON.stringify(siteData)}</script>
+      <script id="metadata" type="application/ld+json">
+        {JSON.stringify(siteData)}
+      </script>
       <script
+        id="google-adsense"
         async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4113746985528013"
         crossOrigin="anonymous"

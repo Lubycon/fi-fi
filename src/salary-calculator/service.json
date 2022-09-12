@@ -1,0 +1,11 @@
+{
+  "title": "내 연봉, 실수령액 알아보기",
+  "description": "내 연봉, 실수령액은 얼마일까? 국세청 통계를 기반으로 정확하게 알아보자!",
+  "author": "Double Tap",
+  "favicon": "/favicon.ico",
+  "logo": {
+    "x": "/favicon1x.png",
+    "xx": "/favicon2x.png",
+    "xxx": "/favicon4x.png"
+  }
+}
