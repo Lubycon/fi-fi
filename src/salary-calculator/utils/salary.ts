@@ -1,6 +1,6 @@
 import { sum } from 'temen';
-import 간이세액표 from 'constants/간이세액표2022.json';
-import 근로소득백분위 from 'constants/근로소득백분위.json';
+import 간이세액표 from 'salary-calculator/constants/간이세액표2022.json';
+import 근로소득백분위 from 'salary-calculator/constants/근로소득백분위.json';
 
 function getIncomeTax(월급여: number) {
   const 소득구간 = 간이세액표.reduce((result, current) => {
