@@ -11,6 +11,7 @@ import Header from 'salary-calculator/components/Header';
 import SalaryInput from './SalaryInput';
 import CopyRights from 'salary-calculator/components/CopyRights';
 import Shortcuts from 'salary-calculator/components/Shortcuts';
+import ServiceHead from 'salary-calculator/components/ServiceHead';
 
 const homePageLogger = logger.getPageLogger('Salary Calculator HomePage');
 
@@ -25,6 +26,7 @@ const HomePage = () => {
 
   return (
     <>
+      <ServiceHead />
       <Header />
       <Flex
         justify={isMobile ? undefined : 'center'}
@@ -32,6 +34,7 @@ const HomePage = () => {
         className={css`
           height: 100vh;
           padding: 0 24px;
+          background-color: #1e1e1e;
         `}
       >
         <Flex

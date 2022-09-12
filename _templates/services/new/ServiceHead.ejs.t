@@ -1,16 +1,12 @@
+---
+to: src/<%= name %>/components/ServiceHead/index.tsx
+---
+
 import Head from 'next/head';
 import { memo } from 'react';
+import serviceJson from '<%= name %>/service.json';
 
-const favicon = '/favicon.ico';
-const logo = {
-  x: '/favicon1x.png',
-  xx: '/favicon2x.png',
-  xxx: '/favicon4x.png',
-};
-
-const title = '더블탭 유틸 박스';
-const description = '더블탭 유틸박스 입니다';
-const author = 'Double Tap';
+const { title, description, author, favicon, logo } = serviceJson;
 
 const siteData = {
   '@context': 'https://schema.org',
@@ -29,16 +25,10 @@ const siteData = {
   },
 };
 
-function CommonHead() {
+function ServiceHead() {
   return (
     <Head>
-      <meta charSet="UTF-8" />
-      <meta
-        name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover"
-      />
       <title>{title}</title>
-      <meta name="author" content={author} />
       <link rel="shortcut icon" href={favicon} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
@@ -54,18 +44,11 @@ function CommonHead() {
       <link rel="apple-touch-icon" sizes="144x144" href={logo.xxx} />
       <link rel="apple-touch-icon" sizes="152x152" href={logo.xxx} />
       <meta name="msapplication-TileImage" content={logo.xx} />
-      <meta name="google-site-verification" content="MLGj_VaV04VWUEkIcsb1Ov-tYu9bcp2TBakfflmc4DA" />
       <script id="metadata" type="application/ld+json">
         {JSON.stringify(siteData)}
       </script>
-      <script
-        id="google-adsense"
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4113746985528013"
-        crossOrigin="anonymous"
-      />
     </Head>
   );
 }
 
-export default memo(CommonHead);
+export default memo(ServiceHead);

@@ -13,6 +13,7 @@ import { Flex, Spacing, Stack, Txt } from 'quantumic-design';
 import { useEffect, useState } from 'react';
 import IncomeRangeResult from './IncomeRangeResult';
 import SalaryResult from './SalaryResult';
+import ServiceHead from 'salary-calculator/components/ServiceHead';
 
 const resultPageLogger = logger.getPageLogger('Salary Calculator ResultPage');
 
@@ -55,6 +56,7 @@ const ResultPage = () => {
 
   return (
     <>
+      <ServiceHead />
       {isLoading === true ? (
         <Flex
           direction="column"
@@ -81,6 +83,7 @@ const ResultPage = () => {
         className={css`
           height: 100vh;
           padding: 0 24px;
+          background-color: #1e1e1e;
         `}
       >
         <Header />

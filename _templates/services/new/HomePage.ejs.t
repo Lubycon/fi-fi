@@ -1,7 +1,7 @@
 ---
 to: src/<%= name %>/pages/HomePage/index.tsx
 ---
-
+import ServiceHead from '<%= name %>/components/ServiceHead';
 import ServiceName from '<%= name %>/components/ServiceName';
 
 /**
@@ -15,6 +15,7 @@ import ServiceName from '<%= name %>/components/ServiceName';
 const HomePage = () => {
   return (
     <div>
+      <ServiceHead />
       <ServiceName name="<%= name %>" />
     </div>
   );
