@@ -16,8 +16,8 @@ const siteData = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
   name: title,
-  url: 'https://salary.double-tap.io',
-  mainEntityOfPage: 'https://salary.double-tap.io',
+  url: 'https://util-box.double-tap.io',
+  mainEntityOfPage: 'https://util-box.double-tap.io',
   description,
   author: {
     '@type': 'Organization',

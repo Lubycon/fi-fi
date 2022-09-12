@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: 'https://salary.double-tap.io',
+  siteUrl: 'https://util-box.double-tap.io',
   generateRobotsTxt: true,
   sitemapSize: 7000,
 };
