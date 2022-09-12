@@ -47,6 +47,7 @@ module.exports = {
         ],
       },
     ],
+    '@typescript-eslint/no-this-alias': 'warn',
     'no-warning-comments': [
       'warn',
       {
