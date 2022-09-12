@@ -1,9 +1,9 @@
 import { Flex, Spacing, Txt } from 'quantumic-design';
 import { commaizeNumber } from 'temen';
 import colors from 'open-color';
-import { getMonthlySalary } from 'utils/salary';
+import { getMonthlySalary } from 'salary-calculator/utils/salary';
 import { useMemo } from 'react';
-import { useMobileScreen } from 'hooks/useMobileScreen';
+import { useMobileScreen } from 'salary-calculator/hooks/useMobileScreen';
 import { css } from '@emotion/css';
 import { RollingNumber } from '@lubycon/rolling-number';
 

@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { useMobileScreen } from 'hooks/useMobileScreen';
+import { useMobileScreen } from 'salary-calculator/hooks/useMobileScreen';
 import { numToKorean } from 'num-to-korean';
 import colors from 'open-color';
 import { Stack, Txt } from 'quantumic-design';

@@ -1,11 +1,11 @@
 import { css } from '@emotion/css';
 import { logger } from '@lubycon/logger';
 import { useBooleanState, useQueryParam } from '@lubycon/react';
-import Button from 'components/Button';
-import CopyRights from 'components/CopyRights';
-import Header from 'components/Header';
-import LoadingSpinner from 'components/LoadingSpinner';
-import { useMobileScreen } from 'hooks/useMobileScreen';
+import Button from 'salary-calculator/components/Button';
+import CopyRights from 'salary-calculator/components/CopyRights';
+import Header from 'salary-calculator/components/Header';
+import LoadingSpinner from 'salary-calculator/components/LoadingSpinner';
+import { useMobileScreen } from 'salary-calculator/hooks/useMobileScreen';
 import Image from 'next/image';
 import Link from 'next/link';
 import colors from 'open-color';

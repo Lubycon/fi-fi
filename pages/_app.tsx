@@ -1,7 +1,7 @@
 import { css } from '@emotion/css';
 import { logger } from '@lubycon/logger';
-import CommonHead from 'components/CommonHead';
-import { isProduction } from 'constants/env';
+import CommonHead from 'salary-calculator/components/CommonHead';
+import { isProduction } from 'salary-calculator/constants/env';
 import type { AppProps } from 'next/app';
 import { useEffect } from 'react';
 import 'reset-css';
