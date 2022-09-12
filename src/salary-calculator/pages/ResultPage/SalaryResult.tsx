@@ -3,7 +3,7 @@ import { commaizeNumber } from 'temen';
 import colors from 'open-color';
 import { getMonthlySalary } from 'salary-calculator/utils/salary';
 import { useMemo } from 'react';
-import { useMobileScreen } from 'salary-calculator/hooks/useMobileScreen';
+import { useMobileScreen } from 'common/hooks/useMobileScreen';
 import { css } from '@emotion/css';
 import { RollingNumber } from '@lubycon/rolling-number';
 

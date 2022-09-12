@@ -4,8 +4,8 @@ import { useBooleanState, useQueryParam } from '@lubycon/react';
 import Button from 'salary-calculator/components/Button';
 import CopyRights from 'salary-calculator/components/CopyRights';
 import Header from 'salary-calculator/components/Header';
-import LoadingSpinner from 'salary-calculator/components/LoadingSpinner';
-import { useMobileScreen } from 'salary-calculator/hooks/useMobileScreen';
+import LoadingSpinner from 'common/components/LoadingSpinner';
+import { useMobileScreen } from 'common/hooks/useMobileScreen';
 import Image from 'next/image';
 import Link from 'next/link';
 import colors from 'open-color';
@@ -14,7 +14,7 @@ import { useEffect, useState } from 'react';
 import IncomeRangeResult from './IncomeRangeResult';
 import SalaryResult from './SalaryResult';
 
-const resultPageLogger = logger.getPageLogger('ResultPage');
+const resultPageLogger = logger.getPageLogger('Salary Calculator ResultPage');
 
 const ResultPage = () => {
   const isMobile = useMobileScreen();

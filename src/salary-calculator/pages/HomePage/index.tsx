@@ -1,7 +1,7 @@
 import { css } from '@emotion/css';
 import { logger } from '@lubycon/logger';
 import Button from 'salary-calculator/components/Button';
-import { useMobileScreen } from 'salary-calculator/hooks/useMobileScreen';
+import { useMobileScreen } from 'common/hooks/useMobileScreen';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Flex, Spacing } from 'quantumic-design';
@@ -12,7 +12,7 @@ import SalaryInput from './SalaryInput';
 import CopyRights from 'salary-calculator/components/CopyRights';
 import Shortcuts from 'salary-calculator/components/Shortcuts';
 
-const homePageLogger = logger.getPageLogger('HomePage');
+const homePageLogger = logger.getPageLogger('Salary Calculator HomePage');
 
 const HomePage = () => {
   const isMobile = useMobileScreen();
