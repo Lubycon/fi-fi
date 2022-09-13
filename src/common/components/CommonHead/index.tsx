@@ -38,22 +38,22 @@ function CommonHead() {
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover"
       />
       <title>{title}</title>
-      <meta name="author" content={author} />
-      <link rel="shortcut icon" href={favicon} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content="/og_image.png" />
-      <link rel="icon" type="image/png" sizes="16x16" href={logo.x} />
-      <link rel="icon" type="image/png" sizes="32x32" href={logo.xx} />
-      <link rel="icon" type="image/png" sizes="48x48" href={logo.xxx} />
-      <link rel="icon" type="image/png" sizes="196x196" href={logo.xxx} />
-      <link rel="apple-touch-icon" sizes="57x57" href={logo.x} />
-      <link rel="apple-touch-icon" sizes="72x72" href={logo.xx} />
-      <link rel="apple-touch-icon" sizes="114x114" href={logo.xxx} />
-      <link rel="apple-touch-icon" sizes="120x120" href={logo.xxx} />
-      <link rel="apple-touch-icon" sizes="144x144" href={logo.xxx} />
-      <link rel="apple-touch-icon" sizes="152x152" href={logo.xxx} />
-      <meta name="msapplication-TileImage" content={logo.xx} />
+      <meta name="author" content={author} key="author" />
+      <link rel="shortcut icon" href={favicon} key="favicon" />
+      <meta property="og:title" content={title} key="og:title" />
+      <meta property="og:description" content={description} key="og:description" />
+      <meta property="og:image" content="/og_image.png" key="og:image" />
+      <link rel="icon" type="image/png" sizes="16x16" href={logo.x} key="icon16" />
+      <link rel="icon" type="image/png" sizes="32x32" href={logo.xx} key="icon32" />
+      <link rel="icon" type="image/png" sizes="48x48" href={logo.xxx} key="icon48" />
+      <link rel="icon" type="image/png" sizes="196x196" href={logo.xxx} key="icon196" />
+      <link rel="apple-touch-icon" sizes="57x57" href={logo.x} key="appleIcon57" />
+      <link rel="apple-touch-icon" sizes="72x72" href={logo.xx} key="appleIcon72" />
+      <link rel="apple-touch-icon" sizes="114x114" href={logo.xxx} key="appleIcon114" />
+      <link rel="apple-touch-icon" sizes="120x120" href={logo.xxx} key="appleIcon120" />
+      <link rel="apple-touch-icon" sizes="144x144" href={logo.xxx} key="appleIcon144" />
+      <link rel="apple-touch-icon" sizes="152x152" href={logo.xxx} key="appleIcon152" />
+      <meta name="msapplication-TileImage" content={logo.xx} key="msTileImage" />
       <meta name="google-site-verification" content="MLGj_VaV04VWUEkIcsb1Ov-tYu9bcp2TBakfflmc4DA" />
       <script id="metadata" type="application/ld+json">
         {JSON.stringify(siteData)}

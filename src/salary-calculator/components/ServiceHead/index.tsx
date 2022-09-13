@@ -26,7 +26,7 @@ function ServiceHead() {
     <Head>
       <title>{title}</title>
       <link rel="shortcut icon" href={favicon} />
-      <meta property="og:title" content={title} />
+      <meta property="og:title" content={title} key="og:title" />
       <meta property="og:description" content={description} />
       <meta property="og:image" content="/og_image.png" />
       <link rel="icon" type="image/png" sizes="16x16" href={logo.x} />
