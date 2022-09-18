@@ -13,6 +13,11 @@ const MainPage = () => {
               <Button>연봉 계산기</Button>
             </a>
           </Link>
+          <Link href="/korean-area">
+            <a>
+              <Button>평수 계산기</Button>
+            </a>
+          </Link>
           <Link href="/image-converter">
             <a>
               <Button>이미지 컨버터</Button>
