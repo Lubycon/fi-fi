@@ -1,6 +1,7 @@
 ---
 to: src/<%= serviceType %>/<%= name %>/pages/HomePage/index.tsx
 ---
+import { Card } from 'semantic-ui-react';
 import ServiceHead from '<%= serviceType %>/<%= name %>/components/ServiceHead';
 import ServiceName from '<%= serviceType %>/<%= name %>/components/ServiceName';
 import Layout from 'common/components/Layout';
