@@ -4,7 +4,7 @@ to: src/<%= serviceType %>/<%= name %>/components/ServiceHead/index.tsx
 
 import Head from 'next/head';
 import { memo } from 'react';
-import serviceJson from '<%= name %>/service.json';
+import serviceJson from '<%= serviceType %>/<%= name %>/service.json';
 
 const { title, description, author, favicon, logo } = serviceJson;
 

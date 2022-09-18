@@ -2,4 +2,4 @@
 to: pages/<%= name %>/index.ts
 ---
 
-export { default } from '<%= name %>/pages/HomePage';
+export { default } from '<%= serviceType %>/<%= name %>/pages/HomePage';
