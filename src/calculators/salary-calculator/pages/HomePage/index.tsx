@@ -2,16 +2,14 @@ import { css } from '@emotion/css';
 import { logger } from '@lubycon/logger';
 import Button from 'calculators/salary-calculator/components/Button';
 import { useMobileScreen } from 'common/hooks/useMobileScreen';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Flex, Spacing } from 'quantumic-design';
 import { useEffect, useState } from 'react';
 import { stringifyQueryParams } from 'temen';
-import Header from 'calculators/salary-calculator/components/Header';
 import SalaryInput from './SalaryInput';
-import CopyRights from 'calculators/salary-calculator/components/CopyRights';
 import Shortcuts from 'calculators/salary-calculator/components/Shortcuts';
 import ServiceHead from 'calculators/salary-calculator/components/ServiceHead';
+import Layout from 'common/components/Layout';
 
 const homePageLogger = logger.getPageLogger('Salary Calculator HomePage');
 
@@ -25,18 +23,9 @@ const HomePage = () => {
   }, []);
 
   return (
-    <>
+    <Layout>
       <ServiceHead />
-      <Header />
-      <Flex
-        justify={isMobile ? undefined : 'center'}
-        align="center"
-        className={css`
-          height: 100vh;
-          padding: 0 24px;
-          background-color: #1e1e1e;
-        `}
-      >
+      <Flex justify={isMobile ? undefined : 'center'} align="center">
         <Flex
           direction="column"
           className={css`
@@ -86,18 +75,7 @@ const HomePage = () => {
           />
         </div>
       )}
-      <div
-        className={css`
-          position: absolute;
-          bottom: 0;
-          right: ${isMobile ? '-40px' : '15vw'};
-          z-index: 0;
-        `}
-      >
-        <Image layout="fixed" width={306} height={306} src="/cash.png" priority={true} alt="" />
-      </div>
-      <CopyRights />
-    </>
+    </Layout>
   );
 };
 
