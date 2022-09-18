@@ -11,7 +11,7 @@ const ServiceName = ({ name }: Props) => {
   return (
     <Stack direction="column" gutter={8}>
       <Txt>안녕하세요!</Txt>
-      <Txt>QDS를 사용하면 {name} 서비스를 더 편하게 만드실 수 있어요.</Txt>
+      <Txt>{name} 서비스 개발을 시작해보세요</Txt>
     </Stack>
   );
 };
