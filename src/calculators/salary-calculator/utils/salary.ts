@@ -16,7 +16,7 @@ function getNationalPension(월급여: number) {
   return 기준소득 * 0.045;
 }
 
-export function getMonthlySalary(세전연봉: number) {
+export function getAllTax(세전연봉: number) {
   const 월급여 = 세전연봉 / 12;
 
   const 국민연금 = getNationalPension(월급여);
@@ -26,9 +26,24 @@ export function getMonthlySalary(세전연봉: number) {
   const 소득세 = getIncomeTax(월급여);
   const 지방세 = 소득세 * 0.1;
 
-  const 한달세금 = sum([국민연금, 건강보험료, 장기요양보험료, 고용보험료, 소득세, 지방세]);
+  const 계 = sum([국민연금, 건강보험료, 장기요양보험료, 고용보험료, 소득세, 지방세]);
 
-  return Math.floor(월급여 - 한달세금);
+  return {
+    국민연금,
+    건강보험료,
+    장기요양보험료,
+    고용보험료,
+    소득세,
+    지방세,
+    계,
+  };
+}
+
+export function getMonthlySalary(세전연봉: number) {
+  const { 계 } = getAllTax(세전연봉);
+
+  const 월급여 = 세전연봉 / 12;
+  return Math.floor(월급여 - 계);
 }
 
 export function calcIncomeRange(세전연봉: number) {
@@ -38,4 +53,13 @@ export function calcIncomeRange(세전연봉: number) {
   });
 
   return 내분위?.구분;
+}
+
+export function getSalaryTable(min: number, max: number) {
+  const salary: number[] = [];
+  for (let i = min; i <= max; i += 1000000) {
+    salary.push(i);
+  }
+
+  return salary;
 }
