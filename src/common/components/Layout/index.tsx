@@ -19,8 +19,10 @@ const Layout = ({ pageTitle, children }: PropsWithChildren<Props>) => {
       <Spacing size={24} />
       <Flex
         as="main"
+        direction="column"
         className={css`
           padding: 0 24px;
+          width: 100%;
         `}
       >
         {pageTitle && (
@@ -29,7 +31,13 @@ const Layout = ({ pageTitle, children }: PropsWithChildren<Props>) => {
             <Spacing size={16} />
           </>
         )}
-        {children}
+        <div
+          className={css`
+            width: 100%;
+          `}
+        >
+          {children}
+        </div>
       </Flex>
       <Spacing size={24} />
       <Footer />

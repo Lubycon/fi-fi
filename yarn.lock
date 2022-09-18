@@ -571,7 +571,7 @@
     firebase "^8.8.1"
     temen "1.36.0"
 
-"@lubycon/react@1.26.2", "@lubycon/react@^1.26.2":
+"@lubycon/react@^1.26.2":
   version "1.26.2"
   resolved "https://registry.yarnpkg.com/@lubycon/react/-/react-1.26.2.tgz#8ef65042c2b4d0e479579578a9695016fd9b1b75"
   integrity sha512-gMq8hPrVHMUa7BhDTvD6FnJqsvAqKcLKU6mAsZH57CnHK2v1MsF3oiw3RbirJs1vSF0zWCT574JCHtOR58qnRg==
@@ -580,13 +580,6 @@
     "@lubycon/logger" "1.11.14"
     browser-toolkit "1.2.11"
     temen "1.36.0"
-
-"@lubycon/rolling-number@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@lubycon/rolling-number/-/rolling-number-1.1.0.tgz#d09c0fb9b43e7fdeab100f378b4023c69a40da63"
-  integrity sha512-sFjV5T24JPT1DJ/QUHDYc5903Tsoxbt6UHM8UvleSCkbE50YiUJck0UFZKcOB2Uwo20fvBewKpInZQQsipWw/g==
-  dependencies:
-    "@lubycon/react" "1.26.2"
 
 "@next/env@12.2.5":
   version "12.2.5"
