@@ -1,1 +1,1 @@
-export { default } from 'image-converter/pages/HomePage';
+export { default } from 'converters/image-converter/pages/HomePage';

@@ -1,5 +1,5 @@
 import { Txt } from 'quantumic-design';
-import { calcIncomeRange } from 'salary-calculator/utils/salary';
+import { calcIncomeRange } from 'calculators/salary-calculator/utils/salary';
 import colors from 'open-color';
 
 interface Props {

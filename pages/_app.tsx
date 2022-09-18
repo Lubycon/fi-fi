@@ -5,6 +5,7 @@ import { isProduction } from 'common/constants/env';
 import type { AppProps } from 'next/app';
 import { useEffect } from 'react';
 import 'reset-css';
+import 'semantic-ui-css/semantic.min.css';
 
 function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
