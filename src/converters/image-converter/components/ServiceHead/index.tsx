@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { memo } from 'react';
-import serviceJson from 'image-converter/service.json';
+import serviceJson from 'converters/image-converter/service.json';
 
 const { title, description, author, favicon, logo } = serviceJson;
 

@@ -1,5 +1,5 @@
 ---
-to: src/<%= name %>/components/ServiceName/index.tsx
+to: src/<%= serviceType %>/<%= name %>/components/ServiceName/index.tsx
 ---
 
 import { Stack, Txt } from 'quantumic-design';

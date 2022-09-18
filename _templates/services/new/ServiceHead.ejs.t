@@ -1,5 +1,5 @@
 ---
-to: src/<%= name %>/components/ServiceHead/index.tsx
+to: src/<%= serviceType %>/<%= name %>/components/ServiceHead/index.tsx
 ---
 
 import Head from 'next/head';

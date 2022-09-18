@@ -1,7 +1,7 @@
 import { Flex, Spacing, Txt } from 'quantumic-design';
 import { commaizeNumber } from 'temen';
 import colors from 'open-color';
-import { getMonthlySalary } from 'salary-calculator/utils/salary';
+import { getMonthlySalary } from 'calculators/salary-calculator/utils/salary';
 import { useMemo } from 'react';
 import { useMobileScreen } from 'common/hooks/useMobileScreen';
 import { css } from '@emotion/css';

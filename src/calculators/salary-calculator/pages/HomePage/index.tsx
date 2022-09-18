@@ -1,17 +1,17 @@
 import { css } from '@emotion/css';
 import { logger } from '@lubycon/logger';
-import Button from 'salary-calculator/components/Button';
+import Button from 'calculators/salary-calculator/components/Button';
 import { useMobileScreen } from 'common/hooks/useMobileScreen';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Flex, Spacing } from 'quantumic-design';
 import { useEffect, useState } from 'react';
 import { stringifyQueryParams } from 'temen';
-import Header from 'salary-calculator/components/Header';
+import Header from 'calculators/salary-calculator/components/Header';
 import SalaryInput from './SalaryInput';
-import CopyRights from 'salary-calculator/components/CopyRights';
-import Shortcuts from 'salary-calculator/components/Shortcuts';
-import ServiceHead from 'salary-calculator/components/ServiceHead';
+import CopyRights from 'calculators/salary-calculator/components/CopyRights';
+import Shortcuts from 'calculators/salary-calculator/components/Shortcuts';
+import ServiceHead from 'calculators/salary-calculator/components/ServiceHead';
 
 const homePageLogger = logger.getPageLogger('Salary Calculator HomePage');
 

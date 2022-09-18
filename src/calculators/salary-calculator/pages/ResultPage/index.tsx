@@ -1,9 +1,9 @@
 import { css } from '@emotion/css';
 import { logger } from '@lubycon/logger';
 import { useBooleanState, useQueryParam } from '@lubycon/react';
-import Button from 'salary-calculator/components/Button';
-import CopyRights from 'salary-calculator/components/CopyRights';
-import Header from 'salary-calculator/components/Header';
+import Button from 'calculators/salary-calculator/components/Button';
+import CopyRights from 'calculators/salary-calculator/components/CopyRights';
+import Header from 'calculators/salary-calculator/components/Header';
 import LoadingSpinner from 'common/components/LoadingSpinner';
 import { useMobileScreen } from 'common/hooks/useMobileScreen';
 import Image from 'next/image';
@@ -13,7 +13,7 @@ import { Flex, Spacing, Stack, Txt } from 'quantumic-design';
 import { useEffect, useState } from 'react';
 import IncomeRangeResult from './IncomeRangeResult';
 import SalaryResult from './SalaryResult';
-import ServiceHead from 'salary-calculator/components/ServiceHead';
+import ServiceHead from 'calculators/salary-calculator/components/ServiceHead';
 
 const resultPageLogger = logger.getPageLogger('Salary Calculator ResultPage');
 
