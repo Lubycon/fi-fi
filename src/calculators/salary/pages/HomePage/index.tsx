@@ -1,14 +1,9 @@
 import { Spacing, Txt } from 'quantumic-design';
 import { useState } from 'react';
-import ServiceHead from 'calculators/salary-calculator/components/ServiceHead';
+import ServiceHead from 'calculators/salary/components/ServiceHead';
 import Layout from 'common/components/Layout';
 import { Card, Form, Input, Table } from 'semantic-ui-react';
-import {
-  calcIncomeRange,
-  getAllTax,
-  getMonthlySalary,
-  getSalaryTable,
-} from 'calculators/salary-calculator/utils/salary';
+import { calcIncomeRange, getAllTax, getMonthlySalary, getSalaryTable } from 'calculators/salary/utils/salary';
 import { commaizeNumber } from 'temen';
 import { css } from '@emotion/css';
 import { numToKorean } from 'num-to-korean';

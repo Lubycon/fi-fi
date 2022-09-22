@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { memo } from 'react';
-import serviceJson from 'calculators/salary-calculator/service.json';
+import serviceJson from 'calculators/salary/service.json';
 
 const { title, description, author, favicon, logo } = serviceJson;
 
