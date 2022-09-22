@@ -18,6 +18,11 @@ const MainPage = () => {
               <Button>평수 계산기</Button>
             </a>
           </Link>
+          <Link href="/compound-interest">
+            <a>
+              <Button>복리 계산기</Button>
+            </a>
+          </Link>
           <Link href="/image-converter">
             <a>
               <Button>이미지 컨버터</Button>
