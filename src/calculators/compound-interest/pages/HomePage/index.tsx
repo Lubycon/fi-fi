@@ -23,10 +23,10 @@ const HomePage = () => {
 
   const [기간타입, set기간타입] = useState<DateType>('일');
 
-  const [계산결과, set계간결과] = useState<Output[]>();
+  const [계산결과, set계산결과] = useState<Output[]>();
 
   const calc = () => {
-    set계간결과(calcCompoundInterest({ 원금, 계산횟수: 기간, 목표수익률: 수익률 }));
+    set계산결과(calcCompoundInterest({ 원금, 계산횟수: 기간, 목표수익률: 수익률 }));
   };
 
   return (
