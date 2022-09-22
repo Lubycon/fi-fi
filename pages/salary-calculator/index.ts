@@ -1,1 +1,1 @@
-export { default } from 'calculators/salary-calculator/pages/HomePage';
+export { default } from 'calculators/salary/pages/HomePage';
