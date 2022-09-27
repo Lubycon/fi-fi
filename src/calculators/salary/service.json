@@ -4,8 +4,8 @@
   "author": "Double Tap",
   "favicon": "/favicon.ico",
   "logo": {
-    "x": "/favicon1x.png",
-    "xx": "/favicon2x.png",
-    "xxx": "/favicon4x.png"
+    "x": "/android-icon-36x36.png",
+    "xx": "/android-icon-72x72.png",
+    "xxx": "/android-icon-192x192.png"
   }
 }
