@@ -3,7 +3,7 @@ module.exports = [
     type: 'select',
     name: 'serviceType',
     message: '어떤 타입의 서비스를 만드려고 하시나요?',
-    choices: ['calculators', 'converters'],
+    choices: ['calculators', 'converters', 'data', 'etc'],
   },
   {
     type: 'input',
