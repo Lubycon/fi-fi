@@ -4,8 +4,11 @@ import CommonHead from 'common/components/CommonHead';
 import { isProduction } from 'common/constants/env';
 import type { AppProps } from 'next/app';
 import { useEffect } from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import 'reset-css';
 import 'semantic-ui-css/semantic.min.css';
+
+const client = new QueryClient();
 
 function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -29,7 +32,7 @@ function App({ Component, pageProps }: AppProps) {
   }, []);
 
   return (
-    <>
+    <QueryClientProvider client={client}>
       <CommonHead />
       <div
         className={css`
@@ -42,7 +45,7 @@ function App({ Component, pageProps }: AppProps) {
       >
         <Component {...pageProps} />
       </div>
-    </>
+    </QueryClientProvider>
   );
 }
 

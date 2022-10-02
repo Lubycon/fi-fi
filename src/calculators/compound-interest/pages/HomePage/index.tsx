@@ -7,7 +7,7 @@ import { css } from '@emotion/css';
 import { calcCompoundInterest, Output } from 'calculators/compound-interest/utils';
 import { commaizeNumber } from 'temen';
 import { numToKorean } from 'num-to-korean';
-import { homePageLogger } from './logger';
+import { logger } from '@lubycon/logger';
 
 type DateType = '일' | '개월' | '년';
 
@@ -31,6 +31,7 @@ const HomePage = () => {
   };
 
   useEffect(() => {
+    const homePageLogger = logger.getPageLogger('calculators/compound-interest/home_page');
     homePageLogger.view();
   }, []);
 

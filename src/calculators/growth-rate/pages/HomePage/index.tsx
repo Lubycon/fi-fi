@@ -4,7 +4,7 @@ import Layout from 'common/components/Layout';
 import { useEffect, useState } from 'react';
 import { Txt } from 'quantumic-design';
 import colors from 'open-color';
-import { homePageLogger } from './logger';
+import { logger } from '@lubycon/logger';
 
 /**
  * 여기서 작성한 페이지를 /pages 디렉토리 내부에서 export 하시면 디렉토리 경로대로 페이지가 생성돼요.
@@ -21,6 +21,7 @@ const HomePage = () => {
   const 성장률 = 이전값 === 0 || 현재값 === 0 ? 0 : ((현재값 - 이전값) / 이전값) * 100;
 
   useEffect(() => {
+    const homePageLogger = logger.getPageLogger('calculators/growth-rate/home_page');
     homePageLogger.view();
   }, []);
 

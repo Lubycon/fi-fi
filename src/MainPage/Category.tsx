@@ -1,9 +1,9 @@
 import { css, cx } from '@emotion/css';
+import { logger } from '@lubycon/logger';
 import Link from 'next/link';
 import { Stack, Txt } from 'quantumic-design';
 import { AnchorHTMLAttributes, ComponentProps, PropsWithChildren } from 'react';
 import { Button, Grid } from 'semantic-ui-react';
-import { mainPageLogger } from './logger';
 
 interface LinkItem {
   name: string;
@@ -37,6 +37,7 @@ const Category = ({ title, links }: Props) => {
               key={link}
               href={link}
               onClick={() => {
+                const mainPageLogger = logger.getPageLogger('main_page');
                 mainPageLogger.click('click_service_link', {
                   serviceName: name,
                   link,

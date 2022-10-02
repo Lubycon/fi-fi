@@ -6,7 +6,7 @@ import { Spacing, Stack, Txt } from 'quantumic-design';
 import { css } from '@emotion/css';
 import { commaizeNumber, getArrayFromCount } from 'temen';
 import colors from 'open-color';
-import { homePageLogger } from './logger';
+import { logger } from '@lubycon/logger';
 
 const 평to제곱미터 = 3.305785;
 
@@ -38,6 +38,7 @@ const HomePage = () => {
   };
 
   useEffect(() => {
+    const homePageLogger = logger.getPageLogger('calculators/korean-area/home_page');
     homePageLogger.view();
   }, []);
 

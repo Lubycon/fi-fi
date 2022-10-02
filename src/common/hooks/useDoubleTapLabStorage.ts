@@ -8,11 +8,11 @@ import { useQuery } from 'react-query';
  *
  * @example
  * ```ts
- * useDoubleTapLabStorage<SelectValue[]>('interviewers/grades.json');
+ * const { data, isLoading } = useDoubleTapLabStorage<SelectValue[]>('interviewers/grades.json');
  * ```
  */
 export function useDoubleTapLabStorage<T>(path: string) {
-  return useQuery(`storageData/${path}`, async () => {
-    return doGet<T>(`https://raw.githubusercontent.com/Lubycon/double-tap-lab-storage/main/${path}`);
+  return useQuery(['storageData', path], async () => {
+    return (await doGet<T>(`https://raw.githubusercontent.com/Lubycon/double-tap-lab-storage/main/${path}`)).body;
   });
 }
