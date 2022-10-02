@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Stack, Txt } from 'quantumic-design';
 import { AnchorHTMLAttributes, ComponentProps, PropsWithChildren } from 'react';
 import { Button, Grid } from 'semantic-ui-react';
+import { mainPageLogger } from './logger';
 
 interface LinkItem {
   name: string;
@@ -32,7 +33,16 @@ const Category = ({ title, links }: Props) => {
       >
         {links.map(({ name, link }) => (
           <Grid.Column key={link}>
-            <Link key={link} href={link}>
+            <Link
+              key={link}
+              href={link}
+              onClick={() => {
+                mainPageLogger.click('click_service_link', {
+                  serviceName: name,
+                  link,
+                });
+              }}
+            >
               <BlockLink>
                 <BlockButton>{name}</BlockButton>
               </BlockLink>

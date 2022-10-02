@@ -2,8 +2,14 @@ import { css } from '@emotion/css';
 import Layout from 'common/components/Layout';
 import { Stack } from 'quantumic-design';
 import Category from './Category';
+import { useEffect } from 'react';
+import { mainPageLogger } from './logger';
 
 const MainPage = () => {
+  useEffect(() => {
+    mainPageLogger.view();
+  }, []);
+
   return (
     <Layout>
       <Stack
