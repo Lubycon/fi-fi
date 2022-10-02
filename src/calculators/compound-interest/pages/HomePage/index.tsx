@@ -1,12 +1,13 @@
 import { Button, Card, Dropdown, Form, Input, Table } from 'semantic-ui-react';
 import ServiceHead from 'calculators/compound-interest/components/ServiceHead';
 import Layout from 'common/components/Layout';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Spacing } from 'quantumic-design';
 import { css } from '@emotion/css';
 import { calcCompoundInterest, Output } from 'calculators/compound-interest/utils';
 import { commaizeNumber } from 'temen';
 import { numToKorean } from 'num-to-korean';
+import { homePageLogger } from './logger';
 
 type DateType = '일' | '개월' | '년';
 
@@ -28,6 +29,10 @@ const HomePage = () => {
   const calc = () => {
     set계산결과(calcCompoundInterest({ 원금, 계산횟수: 기간, 목표수익률: 수익률 }));
   };
+
+  useEffect(() => {
+    homePageLogger.view();
+  }, []);
 
   return (
     <Layout pageTitle="복리 계산기">
