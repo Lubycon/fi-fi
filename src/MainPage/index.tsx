@@ -29,6 +29,7 @@ const MainPage = () => {
           ]}
         />
         <Category title="단위 계산기" links={[{ name: '평수 계산기', link: '/korean-area' }]} />
+        <Category title="환율" links={[{ name: '원/달러 환율', link: '/usd-krw-currency' }]} />
       </Stack>
     </Layout>
   );

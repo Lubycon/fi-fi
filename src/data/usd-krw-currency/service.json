@@ -1,0 +1,12 @@
+{
+  "title": "원달러 환율",
+  "description": "실시간 원달러 환율을 표시합니다 ",
+  "serviceType": "data",
+  "author": "Double Tap",
+  "favicon": "/favicon.ico",
+  "logo": {
+    "x": "/favicon1x.png",
+    "xx": "/favicon2x.png",
+    "xxx": "/favicon4x.png"
+  }
+}

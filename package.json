@@ -20,6 +20,7 @@
     "browser-toolkit": "^1.2.13",
     "next": "12.2.5",
     "next-sitemap": "^3.1.21",
+    "node-html-parser": "^6.1.1",
     "num-to-korean": "^0.5.2",
     "open-color": "^1.9.1",
     "quantumic-design": "^1.6.5",
