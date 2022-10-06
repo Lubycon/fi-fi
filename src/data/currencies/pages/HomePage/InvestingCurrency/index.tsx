@@ -12,7 +12,7 @@ interface Props {
 }
 const InvestingCurrency = ({ ticker }: Props) => {
   const { data } = useQuery(
-    'test',
+    [ticker, 'currency'],
     async () => {
       return (await doGet<CurrencyResponse>(`/api/currencies/${ticker}`)).body;
     },
