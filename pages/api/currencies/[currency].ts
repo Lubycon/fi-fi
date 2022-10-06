@@ -1,1 +1,1 @@
-export { default } from 'data/usd-krw-currency/api/currencies';
+export { default } from 'data/currencies/api/currencies';

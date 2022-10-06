@@ -81,7 +81,7 @@ const BlockButton = ({ className, ...props }: ComponentProps<typeof Button>) => 
       className,
       css`
         width: 100%;
-        height: 200px;
+        height: 100px;
       `
     )}
     {...props}

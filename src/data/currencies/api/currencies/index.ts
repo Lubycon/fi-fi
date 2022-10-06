@@ -1,5 +1,5 @@
 import { decommaizeNumber } from 'common/utils/number';
-import { getCurrency, isValidCurrencyTicker } from 'data/usd-krw-currency/utils';
+import { getCurrency, isValidCurrencyTicker } from 'data/currencies/utils';
 import { NextApiHandler } from 'next';
 import { isString } from 'temen';
 

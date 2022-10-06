@@ -4,6 +4,14 @@ import { Stack } from 'quantumic-design';
 import Category from './Category';
 import { useEffect } from 'react';
 import { logger } from '@lubycon/logger';
+import { currencyName } from 'data/currencies/constants';
+
+const currencyPages = Object.entries(currencyName).map(([ticker, name]) => {
+  return {
+    name: `${name} 환율`,
+    link: `/currencies/${ticker}`,
+  };
+});
 
 const MainPage = () => {
   useEffect(() => {
@@ -14,7 +22,7 @@ const MainPage = () => {
   return (
     <Layout>
       <Stack
-        gutter={16}
+        gutter={32}
         direction="column"
         className={css`
           width: 100%;
@@ -29,7 +37,7 @@ const MainPage = () => {
           ]}
         />
         <Category title="단위 계산기" links={[{ name: '평수 계산기', link: '/korean-area' }]} />
-        <Category title="환율" links={[{ name: '원/달러 환율', link: '/usd-krw-currency' }]} />
+        <Category title="실시간 환율" links={currencyPages} />
       </Stack>
     </Layout>
   );

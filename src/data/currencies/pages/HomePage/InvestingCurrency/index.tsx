@@ -1,16 +1,20 @@
 import { css } from '@emotion/css';
 import { usePreviousState } from '@lubycon/react';
 import { doGet } from 'browser-toolkit';
-import { CurrencyResponse } from 'data/usd-krw-currency/models';
+import { CurrencyResponse, CurrencyTicker } from 'data/currencies/models';
 import { Flex, Txt } from 'quantumic-design';
 import { useQuery } from 'react-query';
-import { getBackgroundColor } from 'data/usd-krw-currency/utils';
+import { getBackgroundColor } from 'data/currencies/utils';
+import { currencyName } from 'data/currencies/constants';
 
-const InvestingCurrency = () => {
+interface Props {
+  ticker: CurrencyTicker;
+}
+const InvestingCurrency = ({ ticker }: Props) => {
   const { data } = useQuery(
-    'test',
+    [ticker, 'currency'],
     async () => {
-      return (await doGet<CurrencyResponse>('/api/currencies/usd-krw')).body;
+      return (await doGet<CurrencyResponse>(`/api/currencies/${ticker}`)).body;
     },
     {
       refetchInterval: 2000,
@@ -23,7 +27,7 @@ const InvestingCurrency = () => {
 
   return (
     <Flex direction="column">
-      <Txt size={14}>현재 원/달러 환율은</Txt>
+      <Txt size={14}>현재 {currencyName[ticker] ?? ticker} 환율은</Txt>
       <Txt
         size={80}
         weight={800}
