@@ -1,29 +1,27 @@
 import { useEffect } from 'react';
 import { logger } from '@lubycon/logger';
-import ServiceHead from 'data/usd-krw-currency/components/ServiceHead';
+import ServiceHead from 'data/currencies/components/ServiceHead';
 import Layout from 'common/components/Layout';
 import InvestingCurrency from './InvestingCurrency';
 import { Flex, Spacing } from 'quantumic-design';
+import { CurrencyTicker } from 'data/currencies/models';
+import { currencyName } from 'data/currencies/constants';
 
-/**
- * 여기서 작성한 페이지를 /pages 디렉토리 내부에서 export 하시면 디렉토리 경로대로 페이지가 생성돼요.
- *
- * @example
- * ```ts
- * export { default } from 'usd-krw-currency/pages/HomePage';
- * ```
- */
-const HomePage = () => {
+interface Props {
+  ticker: CurrencyTicker;
+}
+const HomePage = ({ ticker }: Props) => {
   useEffect(() => {
-    const homePageLogger = logger.getPageLogger('data/usd-krw-currency/home_page');
-    homePageLogger.view();
-  }, []);
+    const homePageLogger = logger.getPageLogger('data/currency/home_page');
+    homePageLogger.view({ currency: ticker });
+  }, [ticker]);
+
   return (
-    <Layout pageTitle="원달러 환율">
-      <ServiceHead />
+    <Layout pageTitle={`실시간 ${currencyName[ticker] ?? ticker} 환율`}>
+      <ServiceHead currency={ticker} />
       <Spacing size={48} />
       <Flex justify="center">
-        <InvestingCurrency />
+        <InvestingCurrency ticker={ticker} />
       </Flex>
       <Spacing size={62} />
       <InvestingCurrency.Copyrights />

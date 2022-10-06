@@ -1,6 +1,6 @@
 {
-  "title": "원달러 환율",
-  "description": "실시간 원달러 환율을 표시합니다 ",
+  "title": "실시간 환율",
+  "description": "실시간 환율을 표시합니다 ",
   "serviceType": "data",
   "author": "Double Tap",
   "favicon": "/favicon.ico",

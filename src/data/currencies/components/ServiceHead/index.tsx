@@ -1,27 +1,34 @@
+import { CurrencyTicker } from 'data/currencies/models';
 import Head from 'next/head';
-import { memo } from 'react';
-import serviceJson from 'data/usd-krw-currency/service.json';
+import { memo, useMemo } from 'react';
+import serviceJson from '../../service.json';
 
 const { title, description, author, favicon, logo } = serviceJson;
 
-const siteData = {
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: title,
-  url: 'https://util-box.double-tap.io/usd-krw-currency',
-  mainEntityOfPage: 'https://util-box.double-tap.io',
-  description,
-  author: {
-    '@type': 'Organization',
-    name: author,
-  },
-  creator: {
-    '@type': 'Organization',
-    name: author,
-  },
-};
+interface Props {
+  currency: CurrencyTicker;
+}
+function ServiceHead({ currency }: Props) {
+  const siteData = useMemo(
+    () => ({
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: title,
+      url: `https://util-box.double-tap.io/currencies/${currency}`,
+      mainEntityOfPage: 'https://util-box.double-tap.io',
+      description,
+      author: {
+        '@type': 'Organization',
+        name: author,
+      },
+      creator: {
+        '@type': 'Organization',
+        name: author,
+      },
+    }),
+    [currency]
+  );
 
-function ServiceHead() {
   return (
     <Head>
       <title>{title}</title>
