@@ -1,0 +1,12 @@
+{
+  "title": "실시간 한미 기준금리차 보기",
+  "description": "한국과 미국의 실시간 기준금리 차이를 확인해보세요.",
+  "serviceType": "data",
+  "author": "Double Tap",
+  "favicon": "/favicon.ico",
+  "logo": {
+    "x": "/favicon1x.png",
+    "xx": "/favicon2x.png",
+    "xxx": "/favicon4x.png"
+  }
+}
