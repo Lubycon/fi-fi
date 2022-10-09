@@ -1,4 +1,4 @@
-export interface InterestRateInfo {
+interface InterestRateInfo {
   rate: string;
   nextDecision: string;
 }
