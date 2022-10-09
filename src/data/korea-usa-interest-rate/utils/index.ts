@@ -1,9 +1,10 @@
 import { fetchHTML } from 'common/utils/html';
+import { InterestRateInfo } from '../models';
 
 type UnwrapPromise<T> = T extends Promise<infer U> ? U : never;
 type ParsedHTMLElement = UnwrapPromise<ReturnType<typeof fetchHTML>>;
 
-const getInterestRateInfo = (html: ParsedHTMLElement, targetClassName: string) => {
+const getInterestRateInfo = (html: ParsedHTMLElement, targetClassName: string): InterestRateInfo => {
   const 금리표 = html.getElementById('side_central_banks');
   const 은행정보 = 금리표?.querySelector(`.${targetClassName}`);
 
