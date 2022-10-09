@@ -98,7 +98,7 @@ const HomePage = () => {
         </strong>
         <br />
         <br />
-        그럼 이제 지금 이 시간 원/달러 환율을 확인하러 가볼까요?
+        그럼 이제 현재 원/달러 환율을 확인하러 가볼까요?
       </Txt>
       <Spacing size={12} />
       <Link href="/currencies/usd-krw">
