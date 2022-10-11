@@ -1,25 +1,24 @@
 import { Spacing } from 'quantumic-design';
 import { Tab } from 'semantic-ui-react';
 import ServiceHead from 'data/quant-data/components/ServiceHead';
-import UsCPITable from 'data/quant-data/components/data/UsCPI';
+import CPITable from 'data/quant-data/components/data/cpi';
 import Layout from 'common/components/Layout';
-
-/**
- * 여기서 작성한 페이지를 /pages 디렉토리 내부에서 export 하시면 디렉토리 경로대로 페이지가 생성돼요.
- *
- * @example
- * ```ts
- * export { default } from 'quant-data/pages/HomePage';
- * ```
- */
 
 const panes = [
   {
     menuItem: 'US-CPI',
     render: () => (
       <Tab.Pane>
-        {' '}
-        <UsCPITable />{' '}
+        <CPITable country="us" />
+      </Tab.Pane>
+    ),
+  },
+
+  {
+    menuItem: 'KR-CPI',
+    render: () => (
+      <Tab.Pane>
+        <CPITable country="kr" />
       </Tab.Pane>
     ),
   },
