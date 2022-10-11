@@ -38,6 +38,15 @@ const MainPage = () => {
         />
         <Category title="단위 계산기" links={[{ name: '평수 계산기', link: '/korean-area' }]} />
         <Category title="실시간 환율" links={currencyPages} />
+        <Category
+          title="금융 정보"
+          links={[
+            {
+              name: '실시간 한미 금리차',
+              link: '/korea-usa-interest-rate',
+            },
+          ]}
+        />
       </Stack>
     </Layout>
   );

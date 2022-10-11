@@ -6,6 +6,8 @@ import InvestingCurrency from './InvestingCurrency';
 import { Flex, Spacing } from 'quantumic-design';
 import { CurrencyTicker } from 'data/currencies/models';
 import { currencyName } from 'data/currencies/constants';
+import Link from 'next/link';
+import { Button } from 'semantic-ui-react';
 
 interface Props {
   ticker: CurrencyTicker;
@@ -23,6 +25,18 @@ const HomePage = ({ ticker }: Props) => {
       <Flex justify="center">
         <InvestingCurrency ticker={ticker} />
       </Flex>
+      {ticker === 'usd-krw' && (
+        <>
+          <Spacing size={18} />
+          <Flex justify="center">
+            <Link href="/korea-usa-interest-rate">
+              <a>
+                <Button primary>한미 기준금리차 확인하기</Button>
+              </a>
+            </Link>
+          </Flex>
+        </>
+      )}
       <Spacing size={62} />
       <InvestingCurrency.Copyrights />
     </Layout>
