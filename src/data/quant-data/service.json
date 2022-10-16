@@ -1,0 +1,12 @@
+{
+  "title": "퀀트데이터",
+  "description": "퀀트를 위한 데이터 모음",
+  "serviceType": "data",
+  "author": "Double Tap",
+  "favicon": "/favicon.ico",
+  "logo": {
+    "x": "/favicon1x.png",
+    "xx": "/favicon2x.png",
+    "xxx": "/favicon4x.png"
+  }
+}
