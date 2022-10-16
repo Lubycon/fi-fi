@@ -47,6 +47,15 @@ const MainPage = () => {
             },
           ]}
         />
+        <Category
+          title="금융 정보"
+          links={[
+            {
+              name: '퀀트 데이터',
+              link: '/quant-data',
+            },
+          ]}
+        />
       </Stack>
     </Layout>
   );
