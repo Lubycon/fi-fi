@@ -45,11 +45,6 @@ const MainPage = () => {
               name: '실시간 한미 금리차',
               link: '/korea-usa-interest-rate',
             },
-          ]}
-        />
-        <Category
-          title="금융 정보"
-          links={[
             {
               name: '퀀트 데이터',
               link: '/quant-data',
