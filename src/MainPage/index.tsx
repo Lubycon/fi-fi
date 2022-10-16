@@ -45,6 +45,10 @@ const MainPage = () => {
               name: '실시간 한미 금리차',
               link: '/korea-usa-interest-rate',
             },
+            {
+              name: '퀀트 데이터',
+              link: '/quant-data',
+            },
           ]}
         />
       </Stack>
