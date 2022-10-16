@@ -11,7 +11,6 @@ type CountryProps = {
 };
 
 const CPITable = ({ country }: CountryProps) => {
-  /* eslint-disable-line no-unused-vars */
   const { data } = useDoubleTapLabStorage<USCPI>('quant-data/' + country + '-cpi.json');
 
   if (data == null) {
