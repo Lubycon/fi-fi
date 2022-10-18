@@ -46,6 +46,10 @@ const MainPage = () => {
               link: '/korea-usa-interest-rate',
             },
             {
+              name: '실시간 미국채 금리',
+              link: '/us-treasury-note',
+            },
+            {
               name: '퀀트 데이터',
               link: '/quant-data',
             },

@@ -1,0 +1,12 @@
+{
+  "title": "실시간 미국채 금리",
+  "description": "실시간 미국채 금리를 살펴봅니다.",
+  "serviceType": "data",
+  "author": "Double Tap",
+  "favicon": "/favicon.ico",
+  "logo": {
+    "x": "/favicon1x.png",
+    "xx": "/favicon2x.png",
+    "xxx": "/favicon4x.png"
+  }
+}
