@@ -1,17 +1,17 @@
 import { Table } from 'semantic-ui-react';
 import { useDoubleTapLabStorage } from 'common/hooks/useDoubleTapLabStorage';
 
-interface USCPI {
-  Date: Record<string, string>;
-  CPI: Record<string, string>;
+interface UnivariateData {
+  date: Record<string, string>;
+  value: Record<string, string>;
 }
 
-type CountryProps = {
-  country: string;
+type JsonFileNameProps = {
+  filename: string;
 };
 
-const CPITable = ({ country }: CountryProps) => {
-  const { data } = useDoubleTapLabStorage<USCPI>('quant-data/' + country + '-cpi.json');
+const DataTable = ({ filename }: JsonFileNameProps) => {
+  const { data } = useDoubleTapLabStorage<UnivariateData>('quant-data/' + filename);
 
   if (data == null) {
     return null;
@@ -22,15 +22,15 @@ const CPITable = ({ country }: CountryProps) => {
       <Table.Header>
         <Table.Row>
           <Table.HeaderCell>Date</Table.HeaderCell>
-          <Table.HeaderCell>CPI</Table.HeaderCell>
+          <Table.HeaderCell>Values</Table.HeaderCell>
         </Table.Row>
       </Table.Header>
 
       <Table.Body>
-        {Object.entries(data.Date).map(([index, date]) => (
+        {Object.entries(data.date).map(([index, date]) => (
           <Table.Row key={index}>
             <Table.Cell width={2}>{date}</Table.Cell>
-            <Table.Cell>{data.CPI[index]}</Table.Cell>
+            <Table.Cell>{data.value[index]}</Table.Cell>
           </Table.Row>
         ))}
       </Table.Body>
@@ -38,4 +38,4 @@ const CPITable = ({ country }: CountryProps) => {
   );
 };
 
-export default CPITable;
+export default DataTable;
