@@ -7,7 +7,7 @@ interface UnivariateData {
 }
 
 type JsonFileNameProps = {
-  filename: string;
+  filename: `${string}.json`;
 };
 
 const DataTable = ({ filename }: JsonFileNameProps) => {
