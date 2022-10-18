@@ -2,12 +2,12 @@ import { Table } from 'semantic-ui-react';
 import { useDoubleTapLabStorage } from 'common/hooks/useDoubleTapLabStorage';
 
 interface USCPI {
-  Date: Record<string, string>;
-  CPI: Record<string, string>;
+  date: Record<string, string>;
+  value: Record<string, string>;
 }
 
 type CountryProps = {
-  country: string;
+  country: 'kr' | 'us';
 };
 
 const CPITable = ({ country }: CountryProps) => {
@@ -27,10 +27,10 @@ const CPITable = ({ country }: CountryProps) => {
       </Table.Header>
 
       <Table.Body>
-        {Object.entries(data.Date).map(([index, date]) => (
+        {Object.entries(data.date).map(([index, date]) => (
           <Table.Row key={index}>
             <Table.Cell width={2}>{date}</Table.Cell>
-            <Table.Cell>{data.CPI[index]}</Table.Cell>
+            <Table.Cell>{data.value[index]}</Table.Cell>
           </Table.Row>
         ))}
       </Table.Body>
