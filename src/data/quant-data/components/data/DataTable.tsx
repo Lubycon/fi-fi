@@ -1,17 +1,17 @@
 import { Table } from 'semantic-ui-react';
 import { useDoubleTapLabStorage } from 'common/hooks/useDoubleTapLabStorage';
 
-interface USCPI {
+interface UnivariateData {
   date: Record<string, string>;
   value: Record<string, string>;
 }
 
-type CountryProps = {
-  country: 'kr' | 'us';
+type JsonFileNameProps = {
+  filename: `${string}.json`;
 };
 
-const CPITable = ({ country }: CountryProps) => {
-  const { data } = useDoubleTapLabStorage<USCPI>('quant-data/' + country + '-cpi.json');
+const DataTable = ({ filename }: JsonFileNameProps) => {
+  const { data } = useDoubleTapLabStorage<UnivariateData>('quant-data/' + filename);
 
   if (data == null) {
     return null;
@@ -22,7 +22,7 @@ const CPITable = ({ country }: CountryProps) => {
       <Table.Header>
         <Table.Row>
           <Table.HeaderCell>Date</Table.HeaderCell>
-          <Table.HeaderCell>CPI</Table.HeaderCell>
+          <Table.HeaderCell>Values</Table.HeaderCell>
         </Table.Row>
       </Table.Header>
 
@@ -38,4 +38,4 @@ const CPITable = ({ country }: CountryProps) => {
   );
 };
 
-export default CPITable;
+export default DataTable;
