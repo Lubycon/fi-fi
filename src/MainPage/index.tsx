@@ -47,7 +47,7 @@ const MainPage = () => {
             },
             {
               name: '실시간 미국채 금리',
-              link: '/us-treasury-note',
+              link: '/us-treasury-rate',
             },
             {
               name: '퀀트 데이터',
