@@ -18,6 +18,7 @@
     "@lubycon/logger": "^1.11.14",
     "@lubycon/react": "^1.26.2",
     "browser-toolkit": "^1.2.13",
+    "date-fns": "^2.29.3",
     "next": "12.2.5",
     "next-sitemap": "^3.1.21",
     "node-html-parser": "^6.1.1",
