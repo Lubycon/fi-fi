@@ -1,8 +1,9 @@
 import { css } from '@emotion/css';
-import { Flex, Spacing, Txt } from 'quantumic-design';
+import { Flex, Spacing, Stack, Txt } from 'quantumic-design';
 import { PropsWithChildren } from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import Aside from './Aside';
 
 interface Props {
   pageTitle?: string;
@@ -31,13 +32,22 @@ const Layout = ({ pageTitle, children }: PropsWithChildren<Props>) => {
             <Spacing size={16} />
           </>
         )}
-        <div
+        <Stack
+          gutter={16}
+          align="stretch"
           className={css`
             width: 100%;
           `}
         >
-          {children}
-        </div>
+          <div
+            className={css`
+              width: 100%;
+            `}
+          >
+            {children}
+          </div>
+          <Aside />
+        </Stack>
       </Flex>
       <Spacing size={24} />
       <Footer />
