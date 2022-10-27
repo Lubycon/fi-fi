@@ -6,7 +6,7 @@ import Layout from 'common/components/Layout';
 
 const panes = [
   {
-    menuItem: 'US-CPI',
+    menuItem: '미국 소비자물가지수',
     render: () => (
       <Tab.Pane>
         <DataTable filename="us-cpi.json" />
@@ -15,7 +15,7 @@ const panes = [
   },
 
   {
-    menuItem: 'KR-CPI',
+    menuItem: '한국 소비자물가지수',
     render: () => (
       <Tab.Pane>
         <DataTable filename="kr-cpi.json" />
@@ -24,10 +24,19 @@ const panes = [
   },
 
   {
-    menuItem: '[KOR] Household debt to GDP ratio',
+    menuItem: '한국 가계부채율',
     render: () => (
       <Tab.Pane>
         <DataTable filename="household_debt.json" />
+      </Tab.Pane>
+    ),
+  },
+
+  {
+    menuItem: '한국 가계대출 연체율',
+    render: () => (
+      <Tab.Pane>
+        <DataTable filename="household_delinquency_rate.json" />
       </Tab.Pane>
     ),
   },
