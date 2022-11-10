@@ -13,22 +13,6 @@ interface Page {
 }
 export const pages: Page[] = [
   {
-    category: '실생활 계산기',
-    links: [
-      { name: '연봉 계산기', link: '/salary-calculator' },
-      { name: '성장률 계산기', link: '/growth-rate' },
-      { name: '복리 계산기', link: '/compound-interest' },
-    ],
-  },
-  {
-    category: '단위 계산기',
-    links: [{ name: '평수 계산기', link: '/korean-area' }],
-  },
-  {
-    category: '실시간 환율',
-    links: [...currencyPages],
-  },
-  {
     category: '금융 정보',
     links: [
       {
@@ -44,5 +28,21 @@ export const pages: Page[] = [
         link: '/quant-data',
       },
     ],
+  },
+  {
+    category: '실시간 환율',
+    links: [...currencyPages],
+  },
+  {
+    category: '실생활 계산기',
+    links: [
+      { name: '연봉 계산기', link: '/salary-calculator' },
+      { name: '성장률 계산기', link: '/growth-rate' },
+      { name: '복리 계산기', link: '/compound-interest' },
+    ],
+  },
+  {
+    category: '단위 계산기',
+    links: [{ name: '평수 계산기', link: '/korean-area' }],
   },
 ];

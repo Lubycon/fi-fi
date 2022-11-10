@@ -9,8 +9,10 @@ import { Spacing, Stack, Txt } from 'quantumic-design';
 import { InterestRateInfoDto } from 'data/korea-usa-interest-rate/models';
 import CountryInterestRate from './CountryInterestRate';
 import Link from 'next/link';
+import { useMobileScreen } from 'common/hooks/useMobileScreen';
 
 const HomePage = () => {
+  const isMobile = useMobileScreen();
   const { data } = useQuery('interestRate', async () => (await doGet<InterestRateInfoDto>('/api/interest-rate')).body);
 
   const 금리차 = useMemo(() => {
@@ -36,7 +38,7 @@ const HomePage = () => {
       <Card fluid>
         <Card.Content>
           <Spacing size={24} />
-          <Stack gutter={48} justify="center" align="center">
+          <Stack gutter={48} direction={isMobile ? 'column' : 'row'} justify="center" align="center">
             <CountryInterestRate
               title="🇰🇷 대한민국 현재 기준금리"
               rate={data?.korea.rate}

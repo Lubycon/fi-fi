@@ -13,7 +13,7 @@ const MainPage = () => {
   }, []);
 
   return (
-    <Layout>
+    <Layout showAside={false}>
       <Stack
         gutter={32}
         direction="column"

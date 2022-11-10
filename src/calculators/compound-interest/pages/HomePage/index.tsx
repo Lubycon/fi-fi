@@ -8,6 +8,7 @@ import { calcCompoundInterest, Output } from 'calculators/compound-interest/util
 import { commaizeNumber } from 'temen';
 import { numToKorean } from 'num-to-korean';
 import { logger } from '@lubycon/logger';
+import { useMobileScreen } from 'common/hooks/useMobileScreen';
 
 type DateType = '일' | '개월' | '년';
 
@@ -18,6 +19,8 @@ const 기간타입options: Array<{ key: DateType; text: DateType; value: DateTyp
 ];
 
 const HomePage = () => {
+  const isMobile = useMobileScreen();
+
   const [원금, set원금] = useState(0);
   const [기간, set기간] = useState(0);
   const [수익률, set수익률] = useState(0);
@@ -38,7 +41,7 @@ const HomePage = () => {
   return (
     <Layout pageTitle="복리 계산기">
       <ServiceHead />
-      <Card>
+      <Card fluid={isMobile}>
         <Card.Content>
           <Form>
             <Form.Field>
@@ -92,37 +95,45 @@ const HomePage = () => {
       </Card>
       <Spacing size={24} />
       {계산결과 && (
-        <Table
-          celled
+        <div
           className={css`
-            max-width: 1200px;
+            overflow-x: scroll;
           `}
         >
-          <Table.Header
+          <Table
+            celled
+            unstackable
+            compact={isMobile}
             className={css`
-              position: sticky;
-              top: 0;
+              max-width: 1200px;
             `}
           >
-            <Table.HeaderCell>기간</Table.HeaderCell>
-            <Table.HeaderCell>수익</Table.HeaderCell>
-            <Table.HeaderCell>총 금액</Table.HeaderCell>
-            <Table.HeaderCell>수익률</Table.HeaderCell>
-          </Table.Header>
-          <Table.Body>
-            {계산결과.map(({ 횟수, 수익, 총금액, 수익률 }) => (
-              <Table.Row key={횟수}>
-                <Table.Cell>
-                  {횟수}
-                  {기간타입}
-                </Table.Cell>
-                <Table.Cell>{commaizeNumber(Math.floor(수익))}원</Table.Cell>
-                <Table.Cell>{commaizeNumber(Math.floor(총금액))}원</Table.Cell>
-                <Table.Cell>{commaizeNumber(수익률.toFixed(2))}%</Table.Cell>
-              </Table.Row>
-            ))}
-          </Table.Body>
-        </Table>
+            <Table.Header
+              className={css`
+                position: sticky;
+                top: 0;
+              `}
+            >
+              <Table.HeaderCell>기간</Table.HeaderCell>
+              <Table.HeaderCell>수익</Table.HeaderCell>
+              <Table.HeaderCell>총 금액</Table.HeaderCell>
+              <Table.HeaderCell>수익률</Table.HeaderCell>
+            </Table.Header>
+            <Table.Body>
+              {계산결과.map(({ 횟수, 수익, 총금액, 수익률 }) => (
+                <Table.Row key={횟수}>
+                  <Table.Cell>
+                    {횟수}
+                    {기간타입}
+                  </Table.Cell>
+                  <Table.Cell>{commaizeNumber(Math.floor(수익))}원</Table.Cell>
+                  <Table.Cell>{commaizeNumber(Math.floor(총금액))}원</Table.Cell>
+                  <Table.Cell>{commaizeNumber(수익률.toFixed(2))}%</Table.Cell>
+                </Table.Row>
+              ))}
+            </Table.Body>
+          </Table>
+        </div>
       )}
     </Layout>
   );

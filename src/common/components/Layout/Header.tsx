@@ -2,8 +2,11 @@ import Link from 'next/link';
 import { Flex, Txt } from 'quantumic-design';
 import colors from 'open-color';
 import { css } from '@emotion/css';
+import { useMobileScreen } from 'common/hooks/useMobileScreen';
 
 const Header = () => {
+  const isMobile = useMobileScreen();
+
   return (
     <Flex
       as="header"
@@ -15,7 +18,7 @@ const Header = () => {
       <Link href="/">
         <Txt
           as="a"
-          size={24}
+          size={isMobile ? 18 : 24}
           weight={700}
           color={colors.black}
           className={css`

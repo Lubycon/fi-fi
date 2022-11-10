@@ -1,14 +1,17 @@
 import { css } from '@emotion/css';
 import { pages } from 'common/constants/pages';
+import { useMobileScreen } from 'common/hooks/useMobileScreen';
 import Link from 'next/link';
 import colors from 'open-color';
 import { Spacing, Stack, Txt } from 'quantumic-design';
 
 const Aside = () => {
+  const isMobile = useMobileScreen();
+
   return (
     <aside
       className={css`
-        width: 300px;
+        width: ${isMobile ? '100%' : '300px'};
         padding: 16px;
         background-color: ${colors.gray[0]};
         border-radius: 8px;
