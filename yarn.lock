@@ -3791,10 +3791,10 @@ punycode@^2.1.0:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
 
-quantumic-design@^1.6.5:
-  version "1.6.5"
-  resolved "https://registry.yarnpkg.com/quantumic-design/-/quantumic-design-1.6.5.tgz#15524ee9a5424da3b14fa3d6b808053e66c1498e"
-  integrity sha512-D4PEVtTF6KNbaTLsrgDfCpNH+EqaZY5NlAmCCr/xSV6s4iQ3SofrXD5JBzoBPqOGNr3Z4B5D8w090eOyQ27Mag==
+quantumic-design@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/quantumic-design/-/quantumic-design-1.7.0.tgz#9c12ace018f0642bc6ea2cff35eb48103b75c911"
+  integrity sha512-/Js+Tl4/+RVK/9ckrmQGWdX0vVivBYxgzAlkKwqfefb5UJypEgeOrLUz3t/E/Paua1M4MFuznpTKJAjMRckBxQ==
   dependencies:
     "@emotion/react" "^11.4.0"
     "@lubycon/react" "^1.26.2"

@@ -6,11 +6,14 @@ import { Flex, Txt } from 'quantumic-design';
 import { useQuery } from 'react-query';
 import { getBackgroundColor } from 'data/currencies/utils';
 import { currencyName } from 'data/currencies/constants';
+import { useMobileScreen } from 'common/hooks/useMobileScreen';
 
 interface Props {
   ticker: CurrencyTicker;
 }
 const InvestingCurrency = ({ ticker }: Props) => {
+  const isMobile = useMobileScreen();
+
   const { data } = useQuery(
     [ticker, 'currency'],
     async () => {
@@ -27,24 +30,33 @@ const InvestingCurrency = ({ ticker }: Props) => {
 
   return (
     <Flex direction="column">
-      <Txt size={14}>현재 {currencyName[ticker] ?? ticker} 환율은</Txt>
       <Txt
-        size={80}
-        weight={800}
-        lineHeight="100px"
+        size={14}
         className={css`
-          transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-          background-color: ${background};
-          color: ${text};
-          padding: 0 24px;
-          border-radius: 8px;
+          margin: 0;
         `}
       >
-        {data?.currency}{' '}
+        현재 {currencyName[ticker] ?? ticker} 환율은
+      </Txt>
+      <Flex direction={isMobile ? 'column' : 'row'} align={isMobile ? 'flex-end' : 'baseline'}>
+        <Txt
+          size={80}
+          weight={800}
+          className={css`
+            transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+            background-color: ${background};
+            color: ${text};
+            padding: 0 24px;
+            border-radius: 8px;
+            margin: 0;
+          `}
+        >
+          {data?.currency}
+        </Txt>
         <Txt display="inline" as="small" size={24} weight={400}>
           원이에요
         </Txt>
-      </Txt>
+      </Flex>
     </Flex>
   );
 };

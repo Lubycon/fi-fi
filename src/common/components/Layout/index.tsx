@@ -4,11 +4,15 @@ import { PropsWithChildren } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import Aside from './Aside';
+import { useMobileScreen } from 'common/hooks/useMobileScreen';
 
 interface Props {
   pageTitle?: string;
+  showAside?: boolean;
 }
-const Layout = ({ pageTitle, children }: PropsWithChildren<Props>) => {
+const Layout = ({ pageTitle, showAside = true, children }: PropsWithChildren<Props>) => {
+  const isMobile = useMobileScreen();
+
   return (
     <div
       className={css`
@@ -33,7 +37,8 @@ const Layout = ({ pageTitle, children }: PropsWithChildren<Props>) => {
           </>
         )}
         <Stack
-          gutter={16}
+          gutter={isMobile ? 50 : 16}
+          direction={isMobile ? 'column' : 'row'}
           align="stretch"
           className={css`
             width: 100%;
@@ -46,7 +51,7 @@ const Layout = ({ pageTitle, children }: PropsWithChildren<Props>) => {
           >
             {children}
           </div>
-          <Aside />
+          {showAside && <Aside />}
         </Stack>
       </Flex>
       <Spacing size={24} />

@@ -1,5 +1,6 @@
 import { css, cx } from '@emotion/css';
 import { logger } from '@lubycon/logger';
+import { useMobileScreen } from 'common/hooks/useMobileScreen';
 import Link from 'next/link';
 import { Stack, Txt } from 'quantumic-design';
 import { AnchorHTMLAttributes, ComponentProps, PropsWithChildren } from 'react';
@@ -75,15 +76,18 @@ const BlockLink = ({ className, ...props }: AnchorHTMLAttributes<HTMLAnchorEleme
   />
 );
 
-const BlockButton = ({ className, ...props }: ComponentProps<typeof Button>) => (
-  <Button
-    className={cx(
-      className,
-      css`
-        width: 100%;
-        height: 100px;
-      `
-    )}
-    {...props}
-  />
-);
+const BlockButton = ({ className, ...props }: ComponentProps<typeof Button>) => {
+  const isMobile = useMobileScreen();
+  return (
+    <Button
+      className={cx(
+        className,
+        css`
+          width: 100%;
+          height: ${isMobile ? 50 : 100}px;
+        `
+      )}
+      {...props}
+    />
+  );
+};

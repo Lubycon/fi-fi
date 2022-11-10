@@ -59,7 +59,12 @@ const HomePage = () => {
                 }}
               />
               <Spacing size={8} />
-              <Stack gutter={8}>
+              <Stack
+                gutter={8}
+                className={css`
+                  flex-wrap: wrap;
+                `}
+              >
                 {평수Preset.map(value => (
                   <Button key={value} size="mini" onClick={set평수Preset(value)}>
                     {value}평
@@ -95,7 +100,12 @@ const HomePage = () => {
                 }}
               />
               <Spacing size={8} />
-              <Stack gutter={8}>
+              <Stack
+                gutter={8}
+                className={css`
+                  flex-wrap: wrap;
+                `}
+              >
                 {제곱미터Preset.map(value => (
                   <Button key={value} size="mini" onClick={set제곱미터Preset(value)}>
                     {value}㎡
@@ -126,6 +136,8 @@ const HomePage = () => {
         </Txt>
       </Txt>
       <Table
+        celled
+        unstackable
         className={css`
           max-width: 400px;
         `}
