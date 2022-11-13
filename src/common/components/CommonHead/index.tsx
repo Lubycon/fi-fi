@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import { memo } from 'react';
 
-const title = '더블탭 유틸 박스';
-const description = '더블탭 유틸박스 입니다';
+const title = 'Fi-Fi: 금융 정보 한 눈에 확인하기';
+const description = '어려운 금융 정보, 한 눈에 확인하기';
 const author = 'Double Tap';
 
 const siteData = {

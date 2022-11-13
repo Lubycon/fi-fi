@@ -25,7 +25,7 @@ const Header = () => {
             cursor: pointer;
           `}
         >
-          더블탭 유틸박스
+          Fi-Fi
         </Txt>
       </Link>
     </Flex>
