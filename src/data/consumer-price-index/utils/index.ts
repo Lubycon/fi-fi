@@ -5,7 +5,7 @@ type ParsedHTMLElement = UnwrapPromise<ReturnType<typeof fetchHTML>>;
 
 const getConsumerPriceIndexInfo = (html: ParsedHTMLElement) => {
   const 물가지수표 = html.getElementById('releaseInfo');
-  console.log(물가지수표);
+
   const 이전값 = 물가지수표?.querySelector(`arial_14 noBold blackFont`);
   const 예측값 = 물가지수표?.querySelector(`arial_14 noBold`);
   const 실제값 = 물가지수표?.querySelector('arial_14 greenFont');
@@ -21,7 +21,7 @@ const getConsumerPriceIndexInfo = (html: ParsedHTMLElement) => {
 
 export const getConsumerPriceIndex = async () => {
   const koreaCPIHTML = await fetchHTML(`https://kr.investing.com/economic-calendar/south-korean-cpi-744`);
-  console.log(koreaCPIHTML);
+
   const koreaCPIMoM = getConsumerPriceIndexInfo(koreaCPIHTML);
 
   const usaCPIHTML = await fetchHTML(`https://kr.investing.com/economic-calendar/cpi-69`);
