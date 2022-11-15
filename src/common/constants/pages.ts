@@ -24,6 +24,10 @@ export const pages: Page[] = [
         link: '/us-treasury-rate',
       },
       {
+        name: '실시간 한미 소비자물가지수',
+        link: '/consumer-price-index',
+      },
+      {
         name: '퀀트 데이터',
         link: '/quant-data',
       },
