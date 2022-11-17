@@ -1,8 +1,12 @@
 import { logger, LoggerEventParams } from '@lubycon/logger';
 import { useEffect } from 'react';
 
+export function useLogger(pageName: string) {
+  return logger.getPageLogger(pageName);
+}
+
 export function usePageLogger(pageName: string, params?: LoggerEventParams) {
-  const pageLogger = logger.getPageLogger(pageName);
+  const pageLogger = useLogger(pageName);
 
   useEffect(() => {
     pageLogger.view(params);
