@@ -4,12 +4,13 @@ type UnwrapPromise<T> = T extends Promise<infer U> ? U : never;
 type ParsedHTMLElement = UnwrapPromise<ReturnType<typeof fetchHTML>>;
 
 const getConsumerPriceIndexInfo = (html: ParsedHTMLElement) => {
-  const 물가지수표 = html.getElementById('releaseInfo');
+  const table = html.getElementById('releaseInfo');
+  const 물가지수표 = table?.getElementsByTagName('span');
 
-  const 이전값 = 물가지수표?.querySelector(`arial_14 noBold blackFont`);
-  const 예측값 = 물가지수표?.querySelector(`arial_14 noBold`);
-  const 실제값 = 물가지수표?.querySelector('arial_14 greenFont');
-  const 발표일 = 물가지수표?.querySelector(`noBold`);
+  const 발표일 = 물가지수표[0]?.getElementsByTagName('div')[0].text;
+  const 실제값 = 물가지수표[1]?.getElementsByTagName('div')[0].text;
+  const 예측값 = 물가지수표[2]?.getElementsByTagName('div')[0].text;
+  const 이전값 = 물가지수표[3]?.getElementsByTagName('div')[0].text;
 
   return {
     previous: 이전값,
@@ -20,11 +21,10 @@ const getConsumerPriceIndexInfo = (html: ParsedHTMLElement) => {
 };
 
 export const getConsumerPriceIndex = async () => {
-  const koreaCPIHTML = await fetchHTML(`https://kr.investing.com/economic-calendar/south-korean-cpi-744`);
-
+  const koreaCPIHTML = await fetchHTML('https://kr.investing.com/economic-calendar/south-korean-cpi-744');
   const koreaCPIMoM = getConsumerPriceIndexInfo(koreaCPIHTML);
 
-  const usaCPIHTML = await fetchHTML(`https://kr.investing.com/economic-calendar/cpi-69`);
+  const usaCPIHTML = await fetchHTML('https://kr.investing.com/economic-calendar/cpi-69');
   const usaCPIMoM = getConsumerPriceIndexInfo(usaCPIHTML);
 
   return {
