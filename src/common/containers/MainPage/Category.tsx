@@ -1,5 +1,5 @@
 import { css, cx } from '@emotion/css';
-import { logger } from '@lubycon/logger';
+import { useLogger } from 'common/hooks/useLogger';
 import { useMobileScreen } from 'common/hooks/useMobileScreen';
 import Link from 'next/link';
 import { Stack, Txt } from 'quantumic-design';
@@ -16,6 +16,7 @@ interface Props {
   links: LinkItem[];
 }
 const Category = ({ title, links }: Props) => {
+  const logger = useLogger('main_page');
   return (
     <Stack
       gutter={8}
@@ -38,8 +39,7 @@ const Category = ({ title, links }: Props) => {
               key={link}
               href={link}
               onClick={() => {
-                const mainPageLogger = logger.getPageLogger('main_page');
-                mainPageLogger.click('click_service_link', {
+                logger.click('click_service_link', {
                   serviceName: name,
                   link,
                 });

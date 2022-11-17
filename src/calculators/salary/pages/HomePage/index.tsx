@@ -1,5 +1,5 @@
 import { Spacing, Txt } from 'quantumic-design';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import ServiceHead from 'calculators/salary/components/ServiceHead';
 import Layout from 'common/components/Layout';
 import { Card, Form, Input, Table } from 'semantic-ui-react';
@@ -7,18 +7,16 @@ import { calcIncomeRange, getAllTax, getMonthlySalary, getSalaryTable } from 'ca
 import { commaizeNumber } from 'temen';
 import { css } from '@emotion/css';
 import { numToKorean } from 'num-to-korean';
-import { homePageLogger } from './logger';
 import { useMobileScreen } from 'common/hooks/useMobileScreen';
+import { usePageLogger } from 'common/hooks/useLogger';
 
 const year = new Date().getFullYear();
 
 const HomePage = () => {
+  usePageLogger('calculators/salary/home_page');
+
   const isMobile = useMobileScreen();
   const [입력한세전연봉, setSalary] = useState<number>();
-
-  useEffect(() => {
-    homePageLogger.view();
-  }, []);
 
   return (
     <Layout pageTitle="연봉 실수령액 계산기">

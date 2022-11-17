@@ -1,6 +1,5 @@
-import { useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 import { Card, Divider } from 'semantic-ui-react';
-import { logger } from '@lubycon/logger';
 import ServiceHead from 'data/us-treasury-rate/components/ServiceHead';
 import Layout from 'common/components/Layout';
 import { Spacing, Stack, Txt } from 'quantumic-design';
@@ -8,16 +7,11 @@ import TreasuryRate from './TreasuryRate';
 import { useTreasuryRate } from './useTreasuryRate';
 import colors from 'open-color';
 import { css } from '@emotion/css';
+import { usePageLogger } from 'common/hooks/useLogger';
 
-/**
- * 여기서 작성한 페이지를 /pages 디렉토리 내부에서 export 하시면 디렉토리 경로대로 페이지가 생성돼요.
- *
- * @example
- * ```ts
- * export { default } from 'us-treasury-rate/pages/HomePage';
- * ```
- */
 const HomePage = () => {
+  usePageLogger('data/us-treasury-rate/home_page');
+
   const { data: oneYearRate } = useTreasuryRate(1);
   const { data: tenYearsRate } = useTreasuryRate(10);
 
@@ -32,10 +26,6 @@ const HomePage = () => {
 
   const interestRateSpreadTextColor = interestRateSpread > 0 ? colors.red[5] : colors.blue[5];
 
-  useEffect(() => {
-    const homePageLogger = logger.getPageLogger('data/us-treasury-rate/home_page');
-    homePageLogger.view();
-  }, []);
   return (
     <Layout pageTitle="실시간 미국채 금리">
       <ServiceHead />

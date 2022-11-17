@@ -2,15 +2,11 @@ import { css } from '@emotion/css';
 import Layout from 'common/components/Layout';
 import { Stack } from 'quantumic-design';
 import Category from './Category';
-import { useEffect } from 'react';
-import { logger } from '@lubycon/logger';
 import { pages } from 'common/constants/pages';
+import { usePageLogger } from 'common/hooks/useLogger';
 
 const MainPage = () => {
-  useEffect(() => {
-    const mainPageLogger = logger.getPageLogger('main_page');
-    mainPageLogger.view();
-  }, []);
+  usePageLogger('main_page');
 
   return (
     <Layout showAside={false}>

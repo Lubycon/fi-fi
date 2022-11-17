@@ -6,12 +6,12 @@ import { isString } from 'temen';
 const getCurrencyHandler: NextApiHandler = async (req, res) => {
   const { currency } = req.query;
   if (!isString(currency) || !isValidCurrencyTicker(currency)) {
-    return res.status(400);
+    return res.status(400).end();
   }
 
   const value = await getCurrency(currency);
   if (value == null) {
-    return res.status(404);
+    return res.status(404).end();
   }
 
   return res.status(200).json({ currency: Number(decommaizeNumber(value)) });
