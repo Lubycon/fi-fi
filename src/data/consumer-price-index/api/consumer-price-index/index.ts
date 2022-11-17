@@ -3,7 +3,6 @@ import { NextApiHandler } from 'next';
 
 const getCountriesConsumerPriceIndex: NextApiHandler = async (_, res) => {
   const consumerPriceIndecies = await getConsumerPriceIndex();
-  console.log(consumerPriceIndecies);
 
   if (Object.values(consumerPriceIndecies).some(v => v.real == null)) {
     return res.status(404).end();
