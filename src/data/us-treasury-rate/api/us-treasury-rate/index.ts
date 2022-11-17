@@ -5,7 +5,7 @@ const getKoreaInterestRate: NextApiHandler = async (req, res) => {
   const { year } = req.query;
 
   if (isNaN(Number(year))) {
-    return res.status(400);
+    return res.status(400).end();
   }
 
   const treasuryRate = await getUSTreasuryRate(Number(year));
