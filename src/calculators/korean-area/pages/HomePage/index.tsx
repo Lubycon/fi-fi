@@ -1,12 +1,12 @@
 import { Button, Card, Form, Input, Table } from 'semantic-ui-react';
 import ServiceHead from 'calculators/korean-area/components/ServiceHead';
 import Layout from 'common/components/Layout';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Spacing, Stack, Txt } from 'quantumic-design';
 import { css } from '@emotion/css';
 import { commaizeNumber, getArrayFromCount } from 'temen';
 import colors from 'open-color';
-import { logger } from '@lubycon/logger';
+import { usePageLogger } from 'common/hooks/useLogger';
 
 const 평to제곱미터 = 3.305785;
 
@@ -26,6 +26,8 @@ const convert제곱미터to평 = (제곱미터?: number) => {
 };
 
 const HomePage = () => {
+  usePageLogger('calculators/korean-area/home_page');
+
   const [평수, set평수] = useState(0);
   const [제곱미터, set제곱미터] = useState(0);
 
@@ -36,11 +38,6 @@ const HomePage = () => {
   const set제곱미터Preset = (제곱미터: number) => () => {
     set제곱미터(제곱미터);
   };
-
-  useEffect(() => {
-    const homePageLogger = logger.getPageLogger('calculators/korean-area/home_page');
-    homePageLogger.view();
-  }, []);
 
   return (
     <Layout pageTitle="평수 계산기">

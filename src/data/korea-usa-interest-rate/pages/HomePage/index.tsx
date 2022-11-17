@@ -1,6 +1,5 @@
-import { useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 import { Button, Card } from 'semantic-ui-react';
-import { logger } from '@lubycon/logger';
 import ServiceHead from 'data/korea-usa-interest-rate/components/ServiceHead';
 import Layout from 'common/components/Layout';
 import { useQuery } from 'react-query';
@@ -10,8 +9,10 @@ import { InterestRateInfoDto } from 'data/korea-usa-interest-rate/models';
 import CountryInterestRate from './CountryInterestRate';
 import Link from 'next/link';
 import { useMobileScreen } from 'common/hooks/useMobileScreen';
+import { usePageLogger } from 'common/hooks/useLogger';
 
 const HomePage = () => {
+  const logger = usePageLogger('data/korea-usa-interest-rate/home_page');
   const isMobile = useMobileScreen();
   const { data } = useQuery('interestRate', async () => (await doGet<InterestRateInfoDto>('/api/interest-rate')).body);
 
@@ -26,11 +27,6 @@ const HomePage = () => {
 
     return Math.abs(한국금리 - 미국금리);
   }, [data]);
-
-  useEffect(() => {
-    const homePageLogger = logger.getPageLogger('data/korea-usa-interest-rate/home_page');
-    homePageLogger.view();
-  }, []);
 
   return (
     <Layout pageTitle="실시간 한미 기준금리차 보기">
@@ -104,7 +100,11 @@ const HomePage = () => {
       </Txt>
       <Spacing size={12} />
       <Link href="/currencies/usd-krw">
-        <a>
+        <a
+          onClick={() => {
+            logger.click('click_currency_krw_usd_link');
+          }}
+        >
           <Button primary>실시간 원/달러 환율 확인하기</Button>
         </a>
       </Link>
