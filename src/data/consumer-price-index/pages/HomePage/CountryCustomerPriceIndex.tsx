@@ -24,9 +24,9 @@ const CountryCustomerPriceIndex = ({ title, previous, real, prediction, announce
       <Txt size={isMobile ? 14 : 16}>{title}</Txt>
       <Txt>이전값: {`${이전값}%`}</Txt>
       <Txt size={isMobile ? 18 : 24} weight={600} color={interestRateSpreadTextColor}>
-        {real}
+        {`${현재값}%`}
       </Txt>
-      <Txt>예측값(가이던스): {prediction}</Txt>
+      <Txt>예측값(가이던스): {`${예측값}%`}</Txt>
       <Txt>발표일: {announceDate}</Txt>
     </Stack>
   );
