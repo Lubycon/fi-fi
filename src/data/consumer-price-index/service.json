@@ -1,0 +1,12 @@
+{
+  "title": "실시간 소비자물가지수 보기",
+  "description": "실시간 소비자물가지수 보기",
+  "serviceType": "data",
+  "author": "Double Tap",
+  "favicon": "/favicon.ico",
+  "logo": {
+    "x": "/favicon1x.png",
+    "xx": "/favicon2x.png",
+    "xxx": "/favicon4x.png"
+  }
+}
