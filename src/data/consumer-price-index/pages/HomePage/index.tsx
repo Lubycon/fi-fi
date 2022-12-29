@@ -111,32 +111,32 @@ const HomePage = () => {
       <Txt as="h3">관련 기사</Txt>
       <Txt as="h4">한국 소비자물가지수(CPI)</Txt>
       <CardArticle
-        title={articleData?.data.korea.first.title ?? ''}
-        imageUrl={articleData?.data.korea.first.imageUrl ?? ''}
-        content={articleData?.data.korea.first.content ?? ''}
-        link={articleData?.data.korea.first.link ?? ''}
+        title={articleData?.data?.korea.first.title ?? ''}
+        imageUrl={articleData?.data?.korea.first.imageUrl ?? ''}
+        content={articleData?.data?.korea.first.content ?? ''}
+        link={articleData?.data?.korea.first.link ?? ''}
       />
       <Spacing size={15} />
       <CardArticle
-        title={articleData?.data.korea.second.title ?? ''}
-        imageUrl={articleData?.data.korea.second.imageUrl ?? ''}
-        content={articleData?.data.korea.second.content ?? ''}
-        link={articleData?.data.korea.second.link ?? ''}
+        title={articleData?.data?.korea.second.title ?? ''}
+        imageUrl={articleData?.data?.korea.second.imageUrl ?? ''}
+        content={articleData?.data?.korea.second.content ?? ''}
+        link={articleData?.data?.korea.second.link ?? ''}
       />
       <Spacing size={15} />
       <Txt as="h4">미국 소비자물가지수(CPI)</Txt>
       <CardArticle
-        title={articleData?.data.usa.first.title ?? ''}
-        imageUrl={articleData?.data.usa.first.imageUrl ?? ''}
-        content={articleData?.data.usa.first.content ?? ''}
-        link={articleData?.data.usa.first.link ?? ''}
+        title={articleData?.data?.usa.first.title ?? ''}
+        imageUrl={articleData?.data?.usa.first.imageUrl ?? ''}
+        content={articleData?.data?.usa.first.content ?? ''}
+        link={articleData?.data?.usa.first.link ?? ''}
       />
       <Spacing size={15} />
       <CardArticle
-        title={articleData?.data.usa.second.title ?? ''}
-        imageUrl={articleData?.data.usa.second.imageUrl ?? ''}
-        content={articleData?.data.usa.second.content ?? ''}
-        link={articleData?.data.usa.second.link ?? ''}
+        title={articleData?.data?.usa.second.title ?? ''}
+        imageUrl={articleData?.data?.usa.second.imageUrl ?? ''}
+        content={articleData?.data?.usa.second.content ?? ''}
+        link={articleData?.data?.usa.second.link ?? ''}
       />
     </Layout>
   );
