@@ -6,7 +6,7 @@ interface Props {
   title: string;
   imageUrl?: string;
   content?: string;
-  link?: string;
+  link: string;
 }
 
 const CardArticle = ({ title, imageUrl, content, link }: Props) => {
@@ -15,7 +15,7 @@ const CardArticle = ({ title, imageUrl, content, link }: Props) => {
   return (
     <Link href={link}>
       <a>
-        <Stack direction="row">
+        <Stack gutter={8} direction="row">
           <img src={imageUrl} alt={title} />
           <Stack gutter={8} direction="column" align="left">
             <Txt size={isMobile ? 14 : 16} color="black" weight={600}>
