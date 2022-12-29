@@ -41,18 +41,18 @@ const HomePage = () => {
           <Stack gutter={48} direction={isMobile ? 'column' : 'row'} justify="center" align="center">
             <CountryCustomerPriceIndex
               title="🇰🇷 대한민국 현재 소비자물가지수"
-              previous={cpiData?.data.korea.previous ?? '0'}
-              real={cpiData?.data.korea.real ?? '0'}
-              prediction={cpiData?.data.korea.prediction ?? '0'}
-              announceDate={cpiData?.data.korea.announceDate ?? ''}
+              previous={cpiData?.data?.korea.previous ?? '0'}
+              real={cpiData?.data?.korea.real ?? '0'}
+              prediction={cpiData?.data?.korea.prediction ?? '0'}
+              announceDate={cpiData?.data?.korea.announceDate ?? ''}
             />
             <Spacing size={24} />
             <CountryCustomerPriceIndex
               title="🇺🇸 미국 현재 소비자물가지수"
-              previous={cpiData?.data.usa.previous ?? '0'}
-              real={cpiData?.data.usa.real ?? '0'}
-              prediction={cpiData?.data.usa.prediction ?? '0'}
-              announceDate={cpiData?.data.usa.announceDate ?? ''}
+              previous={cpiData?.data?.usa.previous ?? '0'}
+              real={cpiData?.data?.usa.real ?? '0'}
+              prediction={cpiData?.data?.usa.prediction ?? '0'}
+              announceDate={cpiData?.data?.usa.announceDate ?? ''}
             />
           </Stack>
           <Spacing size={24} />
