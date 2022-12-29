@@ -41,18 +41,18 @@ const HomePage = () => {
           <Stack gutter={48} direction={isMobile ? 'column' : 'row'} justify="center" align="center">
             <CountryCustomerPriceIndex
               title="🇰🇷 대한민국 현재 소비자물가지수"
-              previous={cpiData?.data.korea.previous}
-              real={cpiData?.data.korea.real}
-              prediction={cpiData?.data.korea.prediction}
-              announceDate={cpiData?.data.korea.announceDate}
+              previous={cpiData?.data.korea.previous ?? '0'}
+              real={cpiData?.data.korea.real ?? '0'}
+              prediction={cpiData?.data.korea.prediction ?? '0'}
+              announceDate={cpiData?.data.korea.announceDate ?? ''}
             />
             <Spacing size={24} />
             <CountryCustomerPriceIndex
               title="🇺🇸 미국 현재 소비자물가지수"
-              previous={cpiData?.data.usa.previous}
-              real={cpiData?.data.usa.real}
-              prediction={cpiData?.data.usa.prediction}
-              announceDate={cpiData?.data.usa.announceDate}
+              previous={cpiData?.data.usa.previous ?? '0'}
+              real={cpiData?.data.usa.real ?? '0'}
+              prediction={cpiData?.data.usa.prediction ?? '0'}
+              announceDate={cpiData?.data.usa.announceDate ?? ''}
             />
           </Stack>
           <Spacing size={24} />
@@ -111,32 +111,32 @@ const HomePage = () => {
       <Txt as="h3">관련 기사</Txt>
       <Txt as="h4">한국 소비자물가지수(CPI)</Txt>
       <CardArticle
-        title={articleData?.data.korea.first.title}
-        imageUrl={articleData?.data.korea.first.imageUrl}
-        content={articleData?.data.korea.first.content}
-        link={articleData?.data.korea.first.link}
+        title={articleData?.data.korea.first.title ?? ''}
+        imageUrl={articleData?.data.korea.first.imageUrl ?? ''}
+        content={articleData?.data.korea.first.content ?? ''}
+        link={articleData?.data.korea.first.link ?? ''}
       />
       <Spacing size={15} />
       <CardArticle
-        title={articleData?.data.korea.second.title}
-        imageUrl={articleData?.data.korea.second.imageUrl}
-        content={articleData?.data.korea.second.content}
-        link={articleData?.data.korea.second.link}
+        title={articleData?.data.korea.second.title ?? ''}
+        imageUrl={articleData?.data.korea.second.imageUrl ?? ''}
+        content={articleData?.data.korea.second.content ?? ''}
+        link={articleData?.data.korea.second.link ?? ''}
       />
       <Spacing size={15} />
       <Txt as="h4">미국 소비자물가지수(CPI)</Txt>
       <CardArticle
-        title={articleData?.data.usa.first.title}
-        imageUrl={articleData?.data.usa.first.imageUrl}
-        content={articleData?.data.usa.first.content}
-        link={articleData?.data.usa.first.link}
+        title={articleData?.data.usa.first.title ?? ''}
+        imageUrl={articleData?.data.usa.first.imageUrl ?? ''}
+        content={articleData?.data.usa.first.content ?? ''}
+        link={articleData?.data.usa.first.link ?? ''}
       />
       <Spacing size={15} />
       <CardArticle
-        title={articleData?.data.usa.second.title}
-        imageUrl={articleData?.data.usa.second.imageUrl}
-        content={articleData?.data.usa.second.content}
-        link={articleData?.data.usa.second.link}
+        title={articleData?.data.usa.second.title ?? ''}
+        imageUrl={articleData?.data.usa.second.imageUrl ?? ''}
+        content={articleData?.data.usa.second.content ?? ''}
+        link={articleData?.data.usa.second.link ?? ''}
       />
     </Layout>
   );
