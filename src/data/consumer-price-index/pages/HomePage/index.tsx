@@ -1,14 +1,14 @@
 import { useEffect } from 'react';
-import { Button, Card } from 'semantic-ui-react';
+import { Card } from 'semantic-ui-react';
 import { logger } from '@lubycon/logger';
 import ServiceHead from 'data/consumer-price-index/components/ServiceHead';
 import Layout from 'common/components/Layout';
 import { useQuery } from 'react-query';
 import { doGet } from 'browser-toolkit';
 import { Spacing, Stack, Txt } from 'quantumic-design';
-import { ConsumerPriceIndexInfoDto } from 'data/consumer-price-index/models';
+import { ConsumerPriceIndexInfoDto, ArticleInfoDto } from 'data/consumer-price-index/models';
 import CountryCustomerPriceIndex from './CountryCustomerPriceIndex';
-import Link from 'next/link';
+import CardArticle from './Article';
 import { useMobileScreen } from 'common/hooks/useMobileScreen';
 
 /**
@@ -21,10 +21,11 @@ import { useMobileScreen } from 'common/hooks/useMobileScreen';
  */
 const HomePage = () => {
   const isMobile = useMobileScreen();
-  const { data } = useQuery(
+  const cpiData = useQuery(
     'ConsumerPriceIndex',
     async () => (await doGet<ConsumerPriceIndexInfoDto>('/api/consumer-price-index')).body
   );
+  const articleData = useQuery('Article', async () => (await doGet<ArticleInfoDto>('/api/article')).body);
 
   useEffect(() => {
     const homePageLogger = logger.getPageLogger('data/consumer-price-index/home_page');
@@ -40,18 +41,18 @@ const HomePage = () => {
           <Stack gutter={48} direction={isMobile ? 'column' : 'row'} justify="center" align="center">
             <CountryCustomerPriceIndex
               title="🇰🇷 대한민국 현재 소비자물가지수"
-              previous={data?.korea.previous}
-              real={data?.korea.real}
-              prediction={data?.korea.prediction}
-              announceDate={data?.korea.announceDate}
+              previous={cpiData?.data?.korea.previous ?? '0'}
+              real={cpiData?.data?.korea.real ?? '0'}
+              prediction={cpiData?.data?.korea.prediction ?? '0'}
+              announceDate={cpiData?.data?.korea.announceDate ?? ''}
             />
             <Spacing size={24} />
             <CountryCustomerPriceIndex
               title="🇺🇸 미국 현재 소비자물가지수"
-              previous={data?.usa.previous}
-              real={data?.usa.real}
-              prediction={data?.usa.prediction}
-              announceDate={data?.usa.announceDate}
+              previous={cpiData?.data?.usa.previous ?? '0'}
+              real={cpiData?.data?.usa.real ?? '0'}
+              prediction={cpiData?.data?.usa.prediction ?? '0'}
+              announceDate={cpiData?.data?.usa.announceDate ?? ''}
             />
           </Stack>
           <Spacing size={24} />
@@ -106,12 +107,31 @@ const HomePage = () => {
         <br />
         그럼, 이제 현재 소비자물가지수를 확인하러 가볼까요?
       </Txt>
-      <Spacing size={12} />
-      <Link href="">
-        <a>
-          <Button primary>소비자물가지수 뉴스 IFrame 추가</Button>
-        </a>
-      </Link>
+      <Spacing size={15} />
+      <Txt as="h3">관련 기사</Txt>
+      <Txt as="h4">한국 소비자물가지수(CPI)</Txt>
+      <Spacing size={15} />
+      {articleData?.data?.korea.map((article, index) => (
+        <CardArticle
+          key={index}
+          title={article.title ?? ''}
+          imageUrl={article.imageUrl ?? ''}
+          content={article.content ?? ''}
+          link={article.link ?? ''}
+        />
+      ))}
+
+      <Spacing size={15} />
+      <Txt as="h4">미국 소비자물가지수(CPI)</Txt>
+      {articleData?.data?.usa.map((article, index) => (
+        <CardArticle
+          key={index}
+          title={article.title ?? ''}
+          imageUrl={article.imageUrl ?? ''}
+          content={article.content ?? ''}
+          link={article.link ?? ''}
+        />
+      ))}
     </Layout>
   );
 };
