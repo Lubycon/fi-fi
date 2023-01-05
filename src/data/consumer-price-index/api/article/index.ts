@@ -4,7 +4,7 @@ import { NextApiHandler } from 'next';
 const getArticle: NextApiHandler = async (_, res) => {
   const articles = await getTopTwoArticle();
 
-  if (Object.values(articles).some(v => v.first == null)) {
+  if (Object.values(articles).some(v => v[0] == null)) {
     return res.status(404).end();
   }
 

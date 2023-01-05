@@ -6,20 +6,16 @@ interface ConsumerPriceIndexInfo {
 }
 
 interface Article {
+  index: number;
   title: string;
   imageUrl: string;
   content: string;
   link: string;
 }
 
-interface Articles {
-  first: Article;
-  second: Article;
-}
-
 export interface ArticleInfoDto {
-  korea: Articles;
-  usa: Articles;
+  korea: Article[];
+  usa: Article[];
 }
 
 export interface ConsumerPriceIndexInfoDto {
