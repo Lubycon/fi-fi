@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://util-box.double-tap.io
+
+# Sitemaps
+Sitemap: https://util-box.double-tap.io/sitemap.xml
