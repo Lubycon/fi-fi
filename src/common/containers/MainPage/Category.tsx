@@ -1,9 +1,10 @@
+'use client';
 import { css, cx } from '@emotion/css';
 import { useLogger } from 'common/hooks/useLogger';
 import { useMobileScreen } from 'common/hooks/useMobileScreen';
 import Link from 'next/link';
 import { Stack, Txt } from 'quantumic-design';
-import { AnchorHTMLAttributes, ComponentProps, PropsWithChildren } from 'react';
+import { ComponentProps, PropsWithChildren } from 'react';
 import { Button, Grid } from 'semantic-ui-react';
 
 interface LinkItem {
@@ -44,10 +45,11 @@ const Category = ({ title, links }: Props) => {
                   link,
                 });
               }}
+              className={css`
+                width: 100%;
+              `}
             >
-              <BlockLink>
-                <BlockButton>{name}</BlockButton>
-              </BlockLink>
+              <BlockButton>{name}</BlockButton>
             </Link>
           </Grid.Column>
         ))}
@@ -62,18 +64,6 @@ const Title = ({ children }: PropsWithChildren<unknown>) => (
   <Txt size={18} weight={600}>
     {children}
   </Txt>
-);
-
-const BlockLink = ({ className, ...props }: AnchorHTMLAttributes<HTMLAnchorElement>) => (
-  <a
-    className={cx(
-      className,
-      css`
-        width: 100%;
-      `
-    )}
-    {...props}
-  />
 );
 
 const BlockButton = ({ className, ...props }: ComponentProps<typeof Button>) => {

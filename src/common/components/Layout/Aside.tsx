@@ -1,3 +1,4 @@
+'use client';
 import { css } from '@emotion/css';
 import { pages } from 'common/constants/pages';
 import { useMobileScreen } from 'common/hooks/useMobileScreen';
@@ -47,9 +48,7 @@ const Aside = () => {
             >
               {links.map(({ name, link }) => (
                 <Link href={link} key={link}>
-                  <a>
-                    <li>{name}</li>
-                  </a>
+                  <li>{name}</li>
                 </Link>
               ))}
             </ul>

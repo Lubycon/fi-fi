@@ -1,3 +1,4 @@
+'use client';
 import Link from 'next/link';
 import { Flex, Txt } from 'quantumic-design';
 import colors from 'open-color';
@@ -15,16 +16,13 @@ const Header = () => {
         border-bottom: 1px solid ${colors.gray[2]};
       `}
     >
-      <Link href="/">
-        <Txt
-          as="a"
-          size={isMobile ? 18 : 24}
-          weight={700}
-          color={colors.black}
-          className={css`
-            cursor: pointer;
-          `}
-        >
+      <Link
+        href="/"
+        className={css`
+          cursor: pointer;
+        `}
+      >
+        <Txt size={isMobile ? 18 : 24} weight={700} color={colors.black}>
           Fi-Fi
         </Txt>
       </Link>

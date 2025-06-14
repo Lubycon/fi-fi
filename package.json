@@ -24,6 +24,7 @@
     "node-html-parser": "^6.1.1",
     "num-to-korean": "^0.5.2",
     "open-color": "^1.9.1",
+    "playwright": "^1.53.0",
     "quantumic-design": "^1.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

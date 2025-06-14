@@ -7,6 +7,7 @@ import { ReactNode, useEffect } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import 'reset-css';
 import 'semantic-ui-css/semantic.min.css';
+import EmotionRegistry from './registry';
 
 const client = new QueryClient();
 
@@ -35,20 +36,22 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="ko">
       <head />
       <body>
-        <QueryClientProvider client={client}>
-          <CommonHead />
-          <div
-            className={css`
-              * {
-                font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue',
-                  'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji',
-                  'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
-              }
-            `}
-          >
-            {children}
-          </div>
-        </QueryClientProvider>
+        <EmotionRegistry>
+          <QueryClientProvider client={client}>
+            <CommonHead />
+            <div
+              className={css`
+                * {
+                  font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue',
+                    'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji',
+                    'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+                }
+              `}
+            >
+              {children}
+            </div>
+          </QueryClientProvider>
+        </EmotionRegistry>
       </body>
     </html>
   );

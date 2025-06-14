@@ -1,3 +1,4 @@
+'use client';
 import { useMemo } from 'react';
 import { Button, Card } from 'semantic-ui-react';
 import ServiceHead from 'data/korea-usa-interest-rate/components/ServiceHead';
@@ -99,14 +100,13 @@ const HomePage = () => {
         그럼 이제 현재 원/달러 환율을 확인하러 가볼까요?
       </Txt>
       <Spacing size={12} />
-      <Link href="/currencies/usd-krw">
-        <a
-          onClick={() => {
-            logger.click('click_currency_krw_usd_link');
-          }}
-        >
-          <Button primary>실시간 원/달러 환율 확인하기</Button>
-        </a>
+      <Link
+        href="/currencies/usd-krw"
+        onClick={() => {
+          logger.click('click_currency_krw_usd_link');
+        }}
+      >
+        <Button primary>실시간 원/달러 환율 확인하기</Button>
       </Link>
     </Layout>
   );

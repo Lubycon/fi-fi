@@ -1,11 +1,5 @@
 import colors from 'open-color';
-import { fetchHTML } from 'common/utils/html';
 import { CurrencyTicker } from '../models';
-
-export const getCurrency = async (currency: CurrencyTicker) => {
-  const html = await fetchHTML(`https://www.investing.com/currencies/${currency}`);
-  return html.querySelector('span[data-test="instrument-price-last"]')?.innerText;
-};
 
 export const isValidCurrencyTicker = (currencyTicker: string): currencyTicker is CurrencyTicker => {
   const tickers = currencyTicker.split('-');

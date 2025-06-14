@@ -1,3 +1,4 @@
+'use client';
 import ServiceHead from 'data/currencies/components/ServiceHead';
 import Layout from 'common/components/Layout';
 import InvestingCurrency from './InvestingCurrency';
@@ -29,14 +30,13 @@ const HomePage = ({ ticker }: Props) => {
         <>
           <Spacing size={isMobile ? 48 : 18} />
           <Flex justify="center">
-            <Link href="/korea-usa-interest-rate">
-              <a
-                onClick={() => {
-                  logger.click('click_kore_usa_interest_rate_link');
-                }}
-              >
-                <Button primary>한미 기준금리차 확인하기</Button>
-              </a>
+            <Link
+              href="/korea-usa-interest-rate"
+              onClick={() => {
+                logger.click('click_kore_usa_interest_rate_link');
+              }}
+            >
+              <Button primary>한미 기준금리차 확인하기</Button>
             </Link>
           </Flex>
         </>
